@@ -1,7 +1,8 @@
-import { Input, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Input, Output, ViewChild } from '@angular/core';
+import { AfterViewInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonToggleGroup } from '@angular/material/button-toggle';
-import * as EventEmitter from 'events';
+import { CookieService } from 'ngx-cookie-service';
 import { BackgroundImageService } from 'src/app/background-image.service';
 
 @Component({
@@ -9,23 +10,26 @@ import { BackgroundImageService } from 'src/app/background-image.service';
   templateUrl: './background-selector.component.html',
   styleUrls: ['./background-selector.component.scss']
 })
-export class BackgroundSelectorComponent implements OnInit {
-  public readonly pictures = [
-    '../assets/field.jpg',
-    '../assets/banff_springs.jpg',
-    '../assets/house.jpg',
-    '../assets/vancouver_woods.jpg'
-  ]
+export class BackgroundSelectorComponent implements AfterViewInit {
   @ViewChild(MatButtonToggleGroup) toggle;
-  
-  constructor(private BackgroundImageService: BackgroundImageService) { }
+  public pictures: string[];
 
-  ngOnInit(): void {
+  constructor(private BackgroundImageService: BackgroundImageService, private CookieService: CookieService, private ChangeDetectorRef: ChangeDetectorRef) {
+    this.pictures = BackgroundImageService.pictures;
   }
 
-  public selectImage(pictureUrl: String) {
-    console.log(pictureUrl)
-    this.BackgroundImageService.setBackgroundUrl(pictureUrl);
+  ngAfterViewInit() {
+    if (this.CookieService.check(this.BackgroundImageService.backgroundCookie)) {
+      let url = this.CookieService.get(this.BackgroundImageService.backgroundCookie);
+      let index = this.pictures.findIndex(val => val === url);
+      this.selectImage(index !== -1 ? index : 0);
+    }
+  }
+
+  public selectImage(index: number) {
+    this.BackgroundImageService.setBackgroundUrl(index);
+    this.toggle._buttonToggles._results[index].checked = true;
+    this.ChangeDetectorRef.detectChanges();
   }
 
 }

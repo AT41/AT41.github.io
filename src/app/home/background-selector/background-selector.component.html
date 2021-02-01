@@ -1,5 +1,5 @@
 <mat-button-toggle-group (change)="selectImage($event.value)" #group="matButtonToggleGroup">
-    <mat-button-toggle *ngFor="let pic of pictures" value="{{pic}}">
+    <mat-button-toggle *ngFor="let pic of pictures; let i = index" value="{{i}}">
         <img src="{{pic}}">
     </mat-button-toggle>
 </mat-button-toggle-group>
