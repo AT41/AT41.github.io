@@ -1,5 +1,4 @@
 import { ElementRef, Injectable } from '@angular/core';
-import { MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()

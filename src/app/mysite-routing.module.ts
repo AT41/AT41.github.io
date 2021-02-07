@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
+import { PersonalProjectsComponent } from './personal-projects/personal-projects.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent}, 
-  {path: 'about-me', component: AboutMeComponent},
+  {path: 'personal-projects', component: PersonalProjectsComponent},
   {path: 'contact', component: ContactComponent}, 
   {path: '**', redirectTo: '/home'}
 ];

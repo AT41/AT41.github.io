@@ -6,19 +6,21 @@ import { MySiteComponent } from './mysite.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from 'src/shared/shared.module';
 import { HomeComponent } from './home/home.component';
-import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { BackgroundSelectorComponent } from './home/background-selector/background-selector.component';
+import { PersonalProjectsComponent } from './personal-projects/personal-projects.component';
+import { PasswordStrengthProjectComponent } from './personal-projects/password-strength-project/password-strength-project.component';
 
 @NgModule({
   declarations: [
     MySiteComponent,
     HomeComponent,
-    AboutMeComponent,
+    PersonalProjectsComponent,
     ContactComponent,
     FooterComponent,
-    BackgroundSelectorComponent
+    BackgroundSelectorComponent,
+    PasswordStrengthProjectComponent
   ],
   imports: [
     BrowserModule,

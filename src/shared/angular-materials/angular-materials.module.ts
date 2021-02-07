@@ -5,7 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatButtonToggleModule} from '@angular/material/button-toggle'; 
-
+import {MatTabsModule} from '@angular/material/tabs'; 
 
 
 @NgModule({
@@ -16,14 +16,16 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTabsModule
   ],
   exports: [
     MatButtonModule,
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTabsModule
   ]
 })
 export class AngularMaterialsModule { }

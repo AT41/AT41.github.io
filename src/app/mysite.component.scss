@@ -4,6 +4,7 @@
     background-size: max(120%, 2000px), 0;
     filter: blur(8px);
     position: absolute;
+    z-index: -1;
     height: 100%;
     width: 100%;
     margin-top: -$header-height;
@@ -24,4 +25,9 @@
     height: 100%;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+router-outlet {
+    display: block;
+    height: $header-height;
 }
