@@ -6,6 +6,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatButtonToggleModule} from '@angular/material/button-toggle'; 
 import {MatTabsModule} from '@angular/material/tabs'; 
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatCardModule,
     MatToolbarModule,
     MatButtonToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDividerModule
   ],
   exports: [
     MatButtonModule,
@@ -25,7 +27,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatCardModule,
     MatToolbarModule,
     MatButtonToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDividerModule
   ]
 })
 export class AngularMaterialsModule { }
