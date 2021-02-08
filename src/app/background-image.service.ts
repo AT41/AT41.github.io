@@ -6,10 +6,10 @@ export class BackgroundImageService {
   private _backgroundElementRef: ElementRef;
   public readonly backgroundCookie = "main_background_url"
   public readonly pictures = [
-    '../assets/field.jpg',
-    '../assets/banff_springs.jpg',
-    '../assets/house.jpg',
-    '../assets/vancouver_woods.jpg'
+    'assets/field.jpg',
+    'assets/banff_springs.jpg',
+    'assets/house.jpg',
+    'assets/vancouver_woods.jpg'
   ]
 
   public setBackgroundElement(el: ElementRef) {
