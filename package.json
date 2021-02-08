@@ -8,9 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "belowIsNeededForIvy": "echo This is not a command. This is a comment for postinstall",
-    "postinstall": "ngcc",
-
+    "thisIsNeededForIvy": "ngcc",
     "pushToGHPages": "ng build --prod --output-path docs --base-href /MySite/ && git add -A && git commit && git push"
   },
   "private": true,
