@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  public email = "anthony.tang2@ucalgary.ca";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public copyToClipboard() {
+    navigator.clipboard.writeText(this.email);
   }
 
 }

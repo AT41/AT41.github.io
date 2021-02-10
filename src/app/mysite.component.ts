@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { BackgroundImageService } from './background-image.service';
-import firebase from 'firebase';
 import { environment } from '../environments/environment';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database'
 
 @Component({
   selector: 'mysite-root',
@@ -17,6 +19,7 @@ export class MySiteComponent implements AfterViewInit {
   public currentPictureUrl: String;
   
   constructor(private el: ElementRef, private BackgroundImageService: BackgroundImageService) {
+
     let db = firebase.initializeApp(environment.firebase).database();
     firebase.auth().signInAnonymously();
     firebase.auth().onAuthStateChanged((user) => {
