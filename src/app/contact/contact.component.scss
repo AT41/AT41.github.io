@@ -3,6 +3,7 @@
     margin: $outer-margin;
     height: calc(100vh - (#{$header-height} + 2*#{$outer-margin} + 32px));
     width: 20rem;
+    overflow-x: auto;
 }
 
 .contact-details {
@@ -17,4 +18,8 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+a {
+    text-overflow: ellipsis;
 }
