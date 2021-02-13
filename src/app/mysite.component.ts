@@ -30,6 +30,10 @@ export class MySiteComponent implements AfterViewInit {
         db.ref(`visitors/${uid}`).set({date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`});
       }
     });
+
+    fetch('https://mysite-server-upas5adfra-uw.a.run.app/fetch-ip/').then((res) => {
+      console.log(res);
+    });
   }
 
   ngAfterViewInit() {
