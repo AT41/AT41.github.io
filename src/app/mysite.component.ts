@@ -1,10 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
+import { MysiteServerService } from 'src/shared/mysite-server.service';
 import { BackgroundImageService } from './background-image.service';
-import { environment } from '../environments/environment';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database'
 
 @Component({
   selector: 'mysite-root',
@@ -18,22 +15,8 @@ export class MySiteComponent implements AfterViewInit {
   @ViewChild('mysite_background') background: ElementRef;
   public currentPictureUrl: String;
   
-  constructor(private el: ElementRef, private BackgroundImageService: BackgroundImageService) {
-
-    let db = firebase.initializeApp(environment.firebase).database();
-    firebase.auth().signInAnonymously();
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        var uid = user.uid;
-        var date = new Date();
-
-        db.ref(`visitors/${uid}`).set({date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`});
-      }
-    });
-
-    fetch('https://mysite-server-upas5adfra-uw.a.run.app/fetch-ip/').then((res) => {
-      console.log(res);
-    });
+  constructor(private el: ElementRef, private BackgroundImageService: BackgroundImageService, private MysiteServerService: MysiteServerService) {
+    this.MysiteServerService.saveUserInfo();
   }
 
   ngAfterViewInit() {
