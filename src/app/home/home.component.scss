@@ -17,23 +17,25 @@ mat-card {
     overflow-y: auto;
 }
 
-$margin: min(10vh, 10%);
+$margin: 32px;
 
 .main {
     display: flex;
     flex-direction: column;
+    gap: 32px;
+    justify-content: center;
     > mat-card-title {
         margin: $margin $margin 0 $margin;
         font-size: 3em;
         padding-bottom: 0.4em;
         border-bottom: 2px solid;
+        line-height: 1em;
     }
     > mat-card-content {
         margin: 1rem 1rem 0 1rem;
     }
     > mat-card-subtitle {
-        margin: max(#{$margin}, 4vh) $margin 0 $margin;
-        padding-bottom: $margin;
+        margin: 0 $margin $margin $margin;
     }
     p {
         margin: 0;
