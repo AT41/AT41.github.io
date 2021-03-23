@@ -1,0 +1,17 @@
+@import '../personal-projects-styles.scss';
+
+h3 {
+    font-weight: 500;
+}
+.list-of-tech {
+    h3 {
+        margin: 0;
+        display: inline;
+    }
+}
+mat-expansion-panel {
+    margin-bottom: 8px;
+    .content-block {
+        padding: 0.4rem;
+    }
+}
