@@ -17,7 +17,7 @@ mat-card {
     overflow-y: auto;
 }
 
-$margin: 32px;
+$margin: min(32px, 4vw);
 
 .main {
     display: flex;
@@ -25,9 +25,9 @@ $margin: 32px;
     gap: 32px;
     justify-content: center;
     > mat-card-title {
-        margin: $margin $margin 0 $margin;
-        font-size: 3em;
-        padding-bottom: 0.4em;
+        margin: 0px $margin 0 $margin;
+        font-size: min(3em, 8vw);
+        padding: $margin 0 0.4em 0;
         border-bottom: 2px solid;
         line-height: 1em;
     }
@@ -35,10 +35,15 @@ $margin: 32px;
         margin: 1rem 1rem 0 1rem;
     }
     > mat-card-subtitle {
-        margin: 0 $margin $margin $margin;
+        padding: 0 $margin $margin $margin;
     }
     p {
         margin: 0;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .main {
+        justify-content: initial;
     }
 }
 
