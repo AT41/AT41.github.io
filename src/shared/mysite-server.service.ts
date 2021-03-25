@@ -24,15 +24,13 @@ export class MysiteServerService {
           from(res.body.getReader().read())
         )
       ).subscribe(({done, value}) => {
-        console.log('here')
         if (user) {
           var uid = user.uid;
           var date = new Date();
 
           var enc = new TextDecoder("utf-8");
           const data = JSON.parse(enc.decode(value));
-          console.dir(data);
-
+          
           this.saveInfoToFirebase(`visitors/${uid}`, {
             date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
             country: data['country'] || data['country_name'] || 'unknown',
