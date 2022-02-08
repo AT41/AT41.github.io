@@ -11,6 +11,7 @@ import { FooterComponent } from './home/footer/footer.component';
 import { BackgroundSelectorComponent } from './home/background-selector/background-selector.component';
 import { PersonalProjectsComponent } from './personal-projects/personal-projects.component';
 import { PasswordStrengthProjectComponent } from './personal-projects/password-strength-project/password-strength-project.component';
+import { DigitalPhotoframeComponent } from './personal-projects/digital-photoframe/digital-photoframe.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PasswordStrengthProjectComponent } from './personal-projects/password-s
     ContactComponent,
     FooterComponent,
     BackgroundSelectorComponent,
-    PasswordStrengthProjectComponent
+    PasswordStrengthProjectComponent,
+    DigitalPhotoframeComponent
   ],
   imports: [
     BrowserModule,
