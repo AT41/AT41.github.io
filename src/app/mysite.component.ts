@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
+import { MysiteServerService } from 'src/shared/mysite-server.service';
 import { BackgroundImageService } from './background-image.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class MySiteComponent implements AfterViewInit {
   @ViewChild('mysite_background') background: ElementRef;
   public currentPictureUrl: String;
   
-  constructor(private el: ElementRef, private BackgroundImageService: BackgroundImageService) {}
+  constructor(private el: ElementRef, private BackgroundImageService: BackgroundImageService, private MysiteServerService: MysiteServerService) {
+    this.MysiteServerService.saveUserInfo();
+  }
 
   ngAfterViewInit() {
     this.BackgroundImageService.setBackgroundElement(this.background);

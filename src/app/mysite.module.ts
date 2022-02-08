@@ -12,6 +12,7 @@ import { BackgroundSelectorComponent } from './home/background-selector/backgrou
 import { PersonalProjectsComponent } from './personal-projects/personal-projects.component';
 import { PasswordStrengthProjectComponent } from './personal-projects/password-strength-project/password-strength-project.component';
 import { DigitalPhotoframeComponent } from './personal-projects/digital-photoframe/digital-photoframe.component';
+import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/japanese-website.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DigitalPhotoframeComponent } from './personal-projects/digital-photofra
     FooterComponent,
     BackgroundSelectorComponent,
     PasswordStrengthProjectComponent,
-    DigitalPhotoframeComponent
+    DigitalPhotoframeComponent,
+    JapaneseWebsiteComponent
   ],
   imports: [
     BrowserModule,

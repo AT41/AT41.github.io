@@ -1,0 +1,128 @@
+<div class='body'>
+    <div class='title'>
+        Japanese Flashcard Website
+    </div>
+    <div>
+        <p>
+            My Japanese Flashcard site is designed to help learners quickly choose pre-existing questions and test themselves.
+            Although users can test anonymously, they can sign in through their Gmail account to keep track of which questions they get right and wrong.
+            Currently, users can choose to test their vocabulary over different Japanese levels, or the basic Japanese alphabet.
+        </p>
+        <p>
+            This is my second iteration of this project, the first being a php application and hosted locally on an old desktop. From my
+            Angular experience gained from my internship, I made the decision to rebuild my project using my new skills in Angular, with
+            the hopes of eventually using AWS for serving my site from, as that is what my workplace used at the time. After I lost a 
+            significant amount of work when my computer files got corrupted which lowered my motivation, I picked up development again 
+            after going back to school and creating a receipt scanner with Google's clouding platform and Firebase. The ease of using 
+            Google Cloud API was the main reason why I made the move to scrap my original locally hosted backend in favor of Google Cloud, 
+            and I started the task of rebuilding my backend from scratch.
+        </p>
+        <mat-expansion-panel class='no-padding-bottom list-of-tech'>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Technologies Used
+            </mat-panel-title>
+            <mat-panel-description>
+              A list of the technologies, frameworks, and libraries that were used in development
+              <div class='tech-imgs'>
+                <div>
+                    <img src='assets/jwebsite/gcloud.png'>
+                    <img src='assets/jwebsite/mysql-workbench.png'>
+                    <img src='assets/firebase.webp'>
+                  </div>
+                  <div>
+                    <img src='assets/jwebsite/vscode.png'>
+                    <img src='assets/angular.png'>
+                    <img src='assets/jwebsite/ts.png'>
+                  </div>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+            <mat-divider></mat-divider>
+            <div class='content-block'>
+                <h3>
+                    Frontend: 
+                </h3>
+                <span>
+                    TypeScript + Angular
+                </span>
+            </div>
+            <mat-divider></mat-divider>
+            <div class='content-block'>
+                <h3>
+                    Backend: 
+                </h3>
+                <span>
+                    Google Cloud Run, NodeJS
+                </span>
+            </div>
+            <mat-divider></mat-divider>
+            <div class='content-block'>
+                <h3>
+                    Database: 
+                </h3>
+                <span>
+                    Google Cloud MySQL
+                </span>
+            </div>
+            <mat-divider></mat-divider>
+            <div class='content-block'>
+                <h3>
+                    Words and Definitions: 
+                </h3>
+                <span>
+                    Jisho.org
+                </span>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-expansion-panel>
+        
+        <mat-expansion-panel class='no-padding-bottom'>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Future Features
+                </mat-panel-title>
+                <mat-panel-description>
+                    A list of features that I plan to implement
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-divider></mat-divider>
+            <div class='content-block'>
+                <h3>Statistics</h3>
+                <div>
+                    Currently user statistics on which questions they get correct and incorrect are saved, and associated with their Gmail usernames.
+                    I plan on implementing a page allowing users to see these stats, and options to create tests consisting of questions the user frequently
+                    gets incorrect.
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class='content-block'>
+                <h3>Google Vision</h3>
+                <div>
+                    Vocabulary sheets are commonplace when learning Japanese, and users aren't always able to find sites that offer tests for their specific
+                    sets of words. Letting users upload images of their sheets, using Google's Vision API to extract Japanese words, and matching the words that
+                    were caught with the pre-existing terms in my database lets users quiz themselves immediately.
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class='content-block'>
+                <h3>Conjugation Tables</h3>
+                <div>
+                    One of the reasons why I love Japanese from a programming perspective is that conjugations are completely predictable. Although it's predictable, 
+                    a lot of beginners struggle with understanding and memorizing conjugation rules, which is why I want to make
+                    conjugation tables for a myriad of different conjugations.
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </div>
+</div>
+
+<div class='footer'>
+    <p>Links:</p>
+    <a href='https://github.com/AT41/JWebsite'>
+        <button mat-button>Frontend<img class='github' src='assets/github.png'></button>
+    </a>
+    <a href='https://github.com/AT41/JWebsite-backend'>
+        <button mat-button>Backend<img class='github' src='assets/github.png'></button>
+    </a>
+</div>

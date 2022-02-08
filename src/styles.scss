@@ -4,3 +4,19 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $header-height: 2.4rem;
 $outer-margin: 4vw;
+
+// Angular Materials
+mat-panel-title {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500
+}
+
+mat-expansion-panel.no-padding-bottom > .mat-expansion-panel-content > div {
+    padding-bottom: 0;
+}
+mat-expansion-panel {
+    mat-expansion-panel-header > span {
+        align-items: center;
+    }
+}
