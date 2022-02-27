@@ -1,0 +1,29 @@
+@import '../personal-projects-styles.scss';
+
+mat-expansion-panel.list-of-tech {
+    mat-list-item {
+        .list-comment {
+            color: gray;
+        }
+        .list-main {
+            width: 15em;
+        }
+    }
+    margin-bottom: 8px;
+    mat-panel-description {
+        align-items: center;
+        img {
+            max-width: 2rem;
+        }
+        div {
+            margin-left: 0.4rem;
+        }
+    }
+    .tech-imgs {
+        display: flex;
+    }
+}
+mat-divider {
+    margin: 3rem 0;
+    position: static !important;
+}

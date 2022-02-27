@@ -1,1 +1,111 @@
-<div class='title'>Password Strength Measurer</div>
+<div class='body'>
+    <div class='description'>
+        <div class='title'>Digital Photo Frame - Feb 8 2022</div>
+        <span>
+          <img src='assets/digitalPhotoframe/finished.jpg' style="max-width: 35%">
+          <img src='assets/digitalPhotoframe/me_lol.jpg' style="max-width: 35%">
+          <img src='assets/digitalPhotoframe/in_progress.jpg' style="max-width: 35%">
+          <img src='assets/digitalPhotoframe/in_progress_2.jpg' style="max-width: 35%">
+        </span>
+    </div>
+    <div>This is a project that I started around July after I bought some Raspberry Pi Zeros. Originally I started working on this using my old Pi 2B but decided to try switching it to a smaller Pi Zero on a whim. I've outlined a step by step tutorial on how to set up the software, and I'll share my journey further down below!</div>
+    
+    <mat-divider></mat-divider>
+
+    <mat-expansion-panel class='no-padding-bottom list-of-tech'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Requirements
+        </mat-panel-title>
+        <mat-panel-description>
+          A list of hardware requirements needed to get the software running
+          <div class='tech-imgs'>
+            <img src='assets/digitalPhotoframe/pi-logo.png'>
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <mat-list-item role="listitem"><div class="list-main">Raspberry Pi Zero W or better</div><div class="list-comment">1GHz Single Core CPU, 512MB RAM, at minimum</div></mat-list-item>
+        <mat-list-item role="listitem"><div class="list-main">Raspberry Pi power adapter</div></mat-list-item>
+        <mat-list-item role="listitem"><div class="list-main">16GB Micro SD Card</div><div class="list-comment">I would recommend 32 to store more photos</div></mat-list-item>
+        <mat-list-item role="listitem">Micro SD Card Reader</mat-list-item>
+        <mat-list-item role="listitem">Mini HDMI to HDMI Adapter</mat-list-item>
+        <mat-list-item role="listitem">USB female to Micro USB Male adapter + USB Keyboard</mat-list-item>
+        <mat-list-item role="listitem"><div class="list-main">6" HDMI Cable</div><div class="list-comment">I used <a href="https://www.amazon.ca/Cable-iVANKY-18Gbps-Speed-Ethernet/dp/B08NCRY513/ref=rvi_1/143-2266116-1313258">this cable</a></div></mat-list-item>
+        <mat-list-item role="listitem"><div class="list-main">Any HDMI Screen</div><div class="list-comment">I used the <a href="https://www.amazon.ca/GeeekPi-Screen-Display-Monitor-Raspberry/dp/B01L6YXZLY/ref=sr_1_17">GeeekPi 7 inch LCD Display</a></div></mat-list-item>
+        <mat-list-item role="listitem">A separate PC</mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+    
+    <div class="global_blog">
+      <h2>Step 1: Operating System Setup</h2>
+      <div>
+        <img src="assets/digitalPhotoframe/instructions/pi-imager.png">
+        <p>
+          Install the Diet-Pi OS for your Pi onto your PC. The OS for the Pi Zero should be the ARMv6 32-bit image due to the chipset the Zero is equipped with. To save the image, download the Raspberry Pi Imager, insert your micro SD card into your computer, and use the imager to move the OS into your SD card.
+        </p>
+        <p>
+          There will be 2 drives you can access from file explorer, and only 1 is openable. Open the openable drive, and make a new folder called pictures. This is where you will store images that will be displayed. Upload an image or two to test later on.
+        </p>
+        <p>
+          Now you will need to set up the Wi-Fi. On your micro SD card on your PC open up dietpi.txt in /boot and set AUTO_SETUP_NET_WIFI_ENABLED to '1', AUTO_SETUP_NET_WIFI_COUNTRY_CODE to your country, and AUTO_SETUP_KEYBOARD to 'us'. 
+          In dietpi-wifi enter the appropriate Wi-Fi credentials for aWIFI_SSID and aWIFI_KEY for Entry 0. Save both files and eject the SD card.
+        </p>
+        <p>
+          Insert the SD card into the Pi and connect the screen, keyboard and power cable into your Pi.
+        </p>
+        <p>
+          On the initial boot, the options you choose are pretty inconsequential; however, I would highly recommend you change your password for security.
+        </p>
+        <img src="assets/digitalPhotoframe/instructions/autostart.png">
+        <p>
+          After the initial boot, enter `dietpi-config`, go to AutoStart Options > Automatic Login > root (UID:0). This is for automating startup scripts to launch our image displayer.
+        </p>
+      </div>
+      <h2>Step 2: Software Setup</h2>
+      <div>
+        <img src="assets/digitalPhotoframe/instructions/login.png">
+        <p>
+          A major portion of this is loosely based off of <a href="https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/">this tutorial</a>, which you can read if there is something that's unclear.
+        </p>
+        <p>
+          First you need to install XServer and Openbox in order to have a UI as opposed to the terminal. Enter `sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox`
+        </p>
+        <p>
+          Rather than using an inefficient web browser to display images, we'll use <a href="https://github.com/phillipberndt/pqiv">pqiv</a>, which is designed specifically to display images.
+          Enter `sudo apt-get install pqiv` to get the application that will be displaying our images.
+        </p>
+        <p>
+          In order to run pqiv we need an instance of Openbox running. We can do this by modifying the startup script for Openbox/XServer. Navigate to the startup script using `cd /etc/xdg/openbox` and then `nano autostart`. 
+        </p>
+        <p>
+          Enter the following:
+          `
+          # Disable any form of screen saver / screen blanking / power management
+          xset s off
+          xset s noblank
+          xset -dpms
+
+          # Allow quitting the X server with CTRL-ATL-Backspace
+          setxkbmap -option terminate:ctrl_alt_bksp
+
+          # Start pqiv
+          pqiv /boot/pictures
+          `
+        </p>
+        <p>
+          Now that you've set up the GUI and pqiv, type `startx -- -nocursor` and you should be able to see a screen similar to this, with your uploaded picture.
+        </p>
+        <img src="assets/digitalPhotoframe/instructions/picture-works.png">
+        <p>
+          There's a lot more customization you can achieve with pqiv which you can find on the <a href="https://manpages.debian.org/testing/pqiv/pqiv.1.en.html">manual pages</a>. I personally used these flags and parameters for my final project:
+          `pqiv -fctisF --slideshow-interval=20 --fade-duration=0.2 /boot/pictures`. In a nutshell, it's full-screen, slideshow with every picture being displayed for 20 seconds.
+        </p>
+        <p>
+          Exit out of the GUI by hitting ctrl+alt+backspace. Now we need to run Openbox on login rather than having to type startx everytime.
+          We can accomplish this by modifying /etc/rc.local or through crontab. Since crontab is more versatile we'll modify that. 
+          Type `crontab -e` to open the crontab for your user (in this case root). At the bottom enter `@reboot startx -- -nocursor`. Restart your Pi with `shutdown -r 0` and pqiv should be running without any user input at all.
+        </p>
+      </div>
+    </div>
+</div>

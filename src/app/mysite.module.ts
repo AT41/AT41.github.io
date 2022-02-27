@@ -13,6 +13,7 @@ import { PersonalProjectsComponent } from './personal-projects/personal-projects
 import { PasswordStrengthProjectComponent } from './personal-projects/password-strength-project/password-strength-project.component';
 import { DigitalPhotoframeComponent } from './personal-projects/digital-photoframe/digital-photoframe.component';
 import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/japanese-website.component';
+import { PiEmulatorComponent } from './personal-projects/pi-emulator/pi-emulator.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/j
     BackgroundSelectorComponent,
     PasswordStrengthProjectComponent,
     DigitalPhotoframeComponent,
-    JapaneseWebsiteComponent
+    JapaneseWebsiteComponent,
+    PiEmulatorComponent
   ],
   imports: [
     BrowserModule,
