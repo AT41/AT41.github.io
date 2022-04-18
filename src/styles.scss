@@ -22,8 +22,19 @@ mat-expansion-panel {
 }
 
 div.global_blog {
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
     font-size: 1.4em;
-    line-height: 1.4em;
+    line-height: 1.6em;
+    img {
+        max-width: 100%;
+        margin: auto;
+        display: block;
+    }
+    @media only screen and (max-width: 850px) {
+        margin: 0;
+    }
+    p {
+        margin: 2rem 0;
+    }
 }

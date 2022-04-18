@@ -17,8 +17,8 @@
     <p>You can download the Diet-Pi image at <a href="https://dietpi.com">DietPi.com</a>. The image contains the operating system for the Pi as well as any data we store in it, such as pictures. For this tutorial choose the ARMv6 32-bit image, which is the DietPi version for the Raspberry Pi Zero.</p>
     <p>
         Next we need the kernels and dtb files. You could theoretically download and build straight from the Linux repository on GitHub, but that was too much of a hassle on my Windows machine so I got everything from the <a href="https://github.com/dhruvvyas90/qemu-rpi-kernel">dhruvvyas90's qemu-rpi-kernel</a> repository on GitHub, and I highly recommend you to do the same!
-        To emulate the software for the Raspberry Pi (2,3,4) and Zero models, download `kernel-qemu-4.14.79-stretch` and `versatile-pb-buster-5.4.51.dtb`. From here run the following command:
-        `qemu-system-arm.exe -machine versatilepb -m 256 -cpu arm1176 -serial stdio -hda yourImageHere -kernel kernel-qemu-4.14.79-stretch -dtb versatile-pb-buster-5.4.51.dtb -append "root=/dev/sda2 rootfstype=ext4 rw panic=1" -no-reboot`
+        To emulate the software for the Raspberry Pi (2,3,4) and Zero models, download `kernel-qemu-4.14.79-stretch` and `versatile-pb-bullseye-5.10.63.dtb`. From here run the following command:
+        `qemu-system-arm.exe -machine versatilepb -m 256 -cpu arm1176 -serial stdio -hda yourImageHere -kernel kernel-qemu-4.14.79-stretch -dtb versatile-pb-bullseye-5.10.63.dtb -append "root=/dev/sda2 rootfstype=ext4 rw panic=1" -no-reboot`
         Although the versatilepb machine won't have the same specs as the hardware, you should be able to use the image in the aforementioned Pis.
     </p>
     <p>Personal note: I wasn't able to get the raspi0 hardware configuration properly running since the kernels and dtb files I extracted from the Diet-Pi image didn't work, but if you were able to get them to work I would love to hear about it!</p>
