@@ -71,3 +71,13 @@ code {
     > img { width: 50%; }
     gap: 1rem;
 }
+.floating-right-image {
+    float: right;
+    max-height: 30vh;
+    margin-left: 1rem;
+    @media only screen and (max-width: 850px) {
+        max-height: unset;
+        margin-left: unset;
+        float: unset;
+    }
+}
