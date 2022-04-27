@@ -1,235 +1,251 @@
 <div class='body'>
-    <div class='description'>
-        <div class='title'>Digital Photo Frame - Feb 8 2022</div>
-        <span>
-          <img src='assets/digitalPhotoframe/finished.jpg' style="max-width: 50%">
-          <img src='assets/digitalPhotoframe/me_lol.jpg' style="max-width: 50%">
-        </span>
-    </div>
-    <div>This is a project that I started around July after I bought some Raspberry Pi Zeros. Originally I started working on this using my old Pi 2B but decided to try switching it to a smaller Pi Zero on a whim. I've outlined a step by step tutorial on how to set up the software, and I'll share my journey further down below!</div>
-    
-    <mat-divider></mat-divider>
+  <div class='description'>
+      <div class='title'>Digital Photo Frame - Feb 8 2022</div>
+      <span>
+        <img src='assets/digitalPhotoframe/finished.jpg' style="max-width: 50%">
+        <img src='assets/digitalPhotoframe/me_lol.jpg' style="max-width: 50%">
+      </span>
+  </div>
+  <div>This is a project that I started around July after I bought some Raspberry Pi Zeros. Originally I started working on this using my old Pi 2B but decided to try switching it to a smaller Pi Zero on a whim. I've outlined a step by step tutorial on how to set up the software, and I'll share my journey further down below!</div>
+  
+  <mat-divider></mat-divider>
 
-    <mat-expansion-panel class='no-padding-bottom list-of-tech'>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Requirements
-        </mat-panel-title>
-        <mat-panel-description>
-          A list of hardware requirements needed to get the software running
-          <div class='tech-imgs'>
-            <img src='assets/digitalPhotoframe/pi_logo.png'>
-          </div>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div class="requirements-grid">
-        <mat-card>
-          <mat-card-title>Raspberry Pi Zero or better</mat-card-title>
-          <mat-card-subtitle>1GHz Single Core CPU, 512MB RAM, at minimum</mat-card-subtitle>
-          <img src="assets/digitalPhotoframe/requirements/pi-zero.jpg" mat-card-image>
-        </mat-card>
-        <mat-card>
-          <mat-card-title>Raspberry Pi power adapter</mat-card-title>
-          <img src="assets/digitalPhotoframe/requirements/power-supply.png" mat-card-image>
-        </mat-card>
-        <mat-card>
-          <mat-card-title>16GB Micro SD Card</mat-card-title>
-          <img src="assets/digitalPhotoframe/requirements/micro-sd.jpg" mat-card-image>
-        </mat-card>
-        <mat-card>
-          <mat-card-title>Micro SD Card Reader</mat-card-title>
-          <img src="assets/digitalPhotoframe/requirements/micro-sd-reader.webp" mat-card-image>
-        </mat-card>
-        <mat-card>
-          <mat-card-title>HDMI Adapter</mat-card-title>
-          <mat-card-subtitle>The type of adapter varies depending on your Pi</mat-card-subtitle>
-          <img src="assets/digitalPhotoframe/requirements/hdmi-adapter.jpg" mat-card-image>
-        </mat-card>
-        <mat-card>
-          <mat-card-title>USB female to Micro USB Male adapter + Keyboard</mat-card-title>
-          <mat-card-subtitle>An adapter is only required if you use the Pi Zero</mat-card-subtitle>
-          <img src="assets/digitalPhotoframe/requirements/usb-adapter.jpg" mat-card-image>
-        </mat-card>
-        <mat-card>
-          <mat-card-title>HDMI Cable</mat-card-title>
-          <mat-card-subtitle>I used <a href="https://www.amazon.ca/Cable-iVANKY-18Gbps-Speed-Ethernet/dp/B08NCRY513/ref=rvi_1/143-2266116-1313258">this cable</a></mat-card-subtitle>
-          <img src="assets/digitalPhotoframe/requirements/hdmi.jpg" mat-card-image>
-        </mat-card>
-        <mat-card>
-          <mat-card-title>Any HDMI Screen</mat-card-title>
-          <mat-card-subtitle>I used the <a href="https://www.amazon.ca/GeeekPi-Screen-Display-Monitor-Raspberry/dp/B01L6YXZLY/ref=sr_1_17">GeeekPi 7 inch LCD Display</a></mat-card-subtitle>
-          <img src="assets/digitalPhotoframe/requirements/screen.jpg" mat-card-image>
-        </mat-card>
-        <mat-card>
-          <mat-card-title>A separate PC</mat-card-title>
-          <img src="assets/digitalPhotoframe/requirements/pc.jpg" mat-card-image>
-        </mat-card>
-      </div>
-      <!--<mat-list role="list">
-        <mat-list-item role="listitem"><div class="list-main">Raspberry Pi Zero or better</div><div class="list-comment">1GHz Single Core CPU, 512MB RAM, at minimum</div></mat-list-item>
-        <mat-list-item role="listitem"><div class="list-main">Raspberry Pi power adapter</div></mat-list-item>
-        <mat-list-item role="listitem"><div class="list-main">16GB Micro SD Card</div><div class="list-comment">I would recommend 32 to store more photos</div></mat-list-item>
-        <mat-list-item role="listitem">Micro SD Card Reader</mat-list-item>
-        <mat-list-item role="listitem">Mini HDMI to HDMI Adapter</mat-list-item>
-        <mat-list-item role="listitem">USB female to Micro USB Male adapter + USB Keyboard</mat-list-item>
-        <mat-list-item role="listitem"><div class="list-main">6" HDMI Cable</div><div class="list-comment">I used <a href="https://www.amazon.ca/Cable-iVANKY-18Gbps-Speed-Ethernet/dp/B08NCRY513/ref=rvi_1/143-2266116-1313258">this cable</a></div></mat-list-item>
-        <mat-list-item role="listitem"><div class="list-main">Any HDMI Screen</div><div class="list-comment">I used the <a href="https://www.amazon.ca/GeeekPi-Screen-Display-Monitor-Raspberry/dp/B01L6YXZLY/ref=sr_1_17">GeeekPi 7 inch LCD Display</a></div></mat-list-item>
-        <mat-list-item role="listitem">A separate PC</mat-list-item>
-      </mat-list>-->
-    </mat-expansion-panel>
-    
+  <mat-expansion-panel class='no-padding-bottom list-of-tech'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 class="section-title">Requirements</h2>
+      </mat-panel-title>
+      <mat-panel-description>
+        A list of hardware requirements needed to get the software running
+        <div class='tech-imgs'>
+          <img src='assets/digitalPhotoframe/pi_logo.png'>
+        </div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="requirements-grid">
+      <mat-card>
+        <mat-card-title>Raspberry Pi Zero or better</mat-card-title>
+        <mat-card-subtitle>1GHz Single Core CPU, 512MB RAM, at minimum</mat-card-subtitle>
+        <img src="assets/digitalPhotoframe/requirements/pi-zero.jpg" mat-card-image>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Raspberry Pi power adapter</mat-card-title>
+        <img src="assets/digitalPhotoframe/requirements/power-supply.png" mat-card-image>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>16GB Micro SD Card</mat-card-title>
+        <img src="assets/digitalPhotoframe/requirements/micro-sd.jpg" mat-card-image>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Micro SD Card Reader</mat-card-title>
+        <img src="assets/digitalPhotoframe/requirements/micro-sd-reader.webp" mat-card-image>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>HDMI Adapter</mat-card-title>
+        <mat-card-subtitle>The type of adapter varies depending on your Pi</mat-card-subtitle>
+        <img src="assets/digitalPhotoframe/requirements/hdmi-adapter.jpg" mat-card-image>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>USB female to Micro USB Male adapter + Keyboard</mat-card-title>
+        <mat-card-subtitle>An adapter is only required if you use the Pi Zero</mat-card-subtitle>
+        <img src="assets/digitalPhotoframe/requirements/usb-adapter.jpg" mat-card-image>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>HDMI Cable</mat-card-title>
+        <mat-card-subtitle>I used <a href="https://www.amazon.ca/Cable-iVANKY-18Gbps-Speed-Ethernet/dp/B08NCRY513/ref=rvi_1/143-2266116-1313258">this cable</a></mat-card-subtitle>
+        <img src="assets/digitalPhotoframe/requirements/hdmi.jpg" mat-card-image>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Any HDMI Screen</mat-card-title>
+        <mat-card-subtitle>I used the <a href="https://www.amazon.ca/GeeekPi-Screen-Display-Monitor-Raspberry/dp/B01L6YXZLY/ref=sr_1_17">GeeekPi 7 inch LCD Display</a></mat-card-subtitle>
+        <img src="assets/digitalPhotoframe/requirements/screen.jpg" mat-card-image>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>A separate PC</mat-card-title>
+        <img src="assets/digitalPhotoframe/requirements/pc.jpg" mat-card-image>
+      </mat-card>
+    </div>
+    <!--<mat-list role="list">
+      <mat-list-item role="listitem"><div class="list-main">Raspberry Pi Zero or better</div><div class="list-comment">1GHz Single Core CPU, 512MB RAM, at minimum</div></mat-list-item>
+      <mat-list-item role="listitem"><div class="list-main">Raspberry Pi power adapter</div></mat-list-item>
+      <mat-list-item role="listitem"><div class="list-main">16GB Micro SD Card</div><div class="list-comment">I would recommend 32 to store more photos</div></mat-list-item>
+      <mat-list-item role="listitem">Micro SD Card Reader</mat-list-item>
+      <mat-list-item role="listitem">Mini HDMI to HDMI Adapter</mat-list-item>
+      <mat-list-item role="listitem">USB female to Micro USB Male adapter + USB Keyboard</mat-list-item>
+      <mat-list-item role="listitem"><div class="list-main">6" HDMI Cable</div><div class="list-comment">I used <a href="https://www.amazon.ca/Cable-iVANKY-18Gbps-Speed-Ethernet/dp/B08NCRY513/ref=rvi_1/143-2266116-1313258">this cable</a></div></mat-list-item>
+      <mat-list-item role="listitem"><div class="list-main">Any HDMI Screen</div><div class="list-comment">I used the <a href="https://www.amazon.ca/GeeekPi-Screen-Display-Monitor-Raspberry/dp/B01L6YXZLY/ref=sr_1_17">GeeekPi 7 inch LCD Display</a></div></mat-list-item>
+      <mat-list-item role="listitem">A separate PC</mat-list-item>
+    </mat-list>-->
+  </mat-expansion-panel>
+  
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 class="section-title">Step 1: OS Setup</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
     <div class="global_blog">
-      <h1>Step 1: Operating System Setup</h1>
-      <div>
-        <img src="assets/digitalPhotoframe/instructions/pi-imager.png">
-        <p>
-          Install the Diet-Pi OS for your Pi onto your PC. The OS for the Pi Zero should be the ARMv6 32-bit image due to the chipset the Zero is equipped with. To save the image, download the Raspberry Pi Imager, insert your micro SD card into your computer, and use the imager to move the OS into your SD card.
-        </p>
-        <p>
-          There will be 2 drives you can access from file explorer, and only 1 is openable. Open the openable drive, and make a new folder called pictures. This is where you will store images that will be displayed. Upload an image or two to test later on.
-        </p>
-        <p>
-          Now you will need to set up the Wi-Fi. On your micro SD card on your PC open up dietpi.txt in /boot and set 
-          <br><code>AUTO_SETUP_NET_WIFI_ENABLED</code> to '1', 
-          <br><code>AUTO_SETUP_NET_WIFI_COUNTRY_CODE</code> to your country, and 
-          <br><code>AUTO_SETUP_KEYBOARD</code> to 'us'. 
-          <br>In dietpi-wifi enter the appropriate Wi-Fi credentials for aWIFI_SSID and aWIFI_KEY for Entry 0. Save both files and eject the SD card.
-        </p>
-        <p>
-          Insert the SD card into the Pi and connect the screen, keyboard and power cable into your Pi.
-          <br>On the initial boot, the options you choose are pretty inconsequential; however, I would highly recommend you change your password for security.
-        </p>
-        <img src="assets/digitalPhotoframe/instructions/autostart.png">
-        <p>
-          After the initial boot, enter <code>dietpi-config</code>, go to AutoStart Options > Automatic Login > root (UID:0). This is for automating startup scripts to launch our image displayer.
-        </p>
-      </div>
-      <h1>Step 2: Software Setup</h1>
-      <div>
-        <img src="assets/digitalPhotoframe/instructions/login.png">
-        <p class="image-detail">
-          A major portion of this is loosely based off of <a href="https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/">this tutorial</a>, which you can read if there is something that's unclear.
-        </p>
-        <p>
-          First you need to install XServer and Openbox in order to have a UI as opposed to the terminal. 
-          <br>Enter <code>sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox</code>
-        </p>
-        <p>
-          Rather than using an inefficient web browser to display images, we'll use <a href="https://github.com/phillipberndt/pqiv">pqiv</a>, which is designed specifically to display images.
-          Enter <code>sudo apt-get install pqiv</code> to get the application that will be displaying our images.
-        </p>
-        <p>
-          In order to run pqiv we need an instance of Openbox running. We can do this by modifying the startup script for Openbox/XServer. 
-          <br>Open the startup script using <code>nano /etc/xdg/openbox/autostart</code>. 
-        </p>
-        <p>
-          Enter the following:
-          <code>
-            <br># Disable any form of screen saver / screen blanking / power management
-            <br>xset s off
-            <br>xset s noblank
-            <br>xset -dpms
-            <br>
-            <br># Allow quitting the X server with CTRL-ATL-Backspace
-            <br>setxkbmap -option terminate:ctrl_alt_bksp
-            <br>
-            <br># Start pqiv
-            <br>pqiv /boot/pictures
-          </code>
-        </p>
-        <p>
-          Now that you've set up the GUI and pqiv, type <code>startx -- -nocursor</code> and you should be able to see a screen similar to this, with your uploaded picture.
-        </p>
-        <img src="assets/digitalPhotoframe/instructions/picture-works.png">
-        <p>
-          There's a lot more customization you can achieve with pqiv which you can find on the <a href="https://manpages.debian.org/testing/pqiv/pqiv.1.en.html">manual pages</a>. I personally used these flags and parameters for my final project:
-          <br><code>pqiv -fctisF --slideshow-interval=20 --fade-duration=0.2 /boot/pictures</code>. 
-          <br>In a nutshell, it's full-screen, slideshow with every picture being displayed for 20 seconds.
-        </p>
-        <p>
-          Exit out of the GUI by hitting ctrl+alt+backspace. Now we need to run Openbox on login rather than having to type startx everytime.
-          We can accomplish this by modifying /etc/rc.local or through crontab. Since crontab is more versatile we'll modify that. 
-          Type <code>crontab -e</code> to open the crontab for your user (in this case root). 
-          <br>At the bottom enter <code>@reboot startx -- -nocursor</code>. Restart your Pi with <code>shutdown -r 0</code> and pqiv should be running without any user input at all.
-        </p>
-        <p>
-          Tip: If your slideshow runs slowly on your chosen screen, you might squeeze some better performance by looking into the overclock potential of your Pi!
-        </p>
-      </div>
-      <h1>Step 3: Building the Picture Frame</h1>
-      <div>
-        <p>
-          This part of the tutorial breaks down into more of an informal, casual explanation of how I built the physical portion of the project. If you've gotten this far you should wing it with your own design and procedure!
-        </p>
-        <p>
-          The first item I needed was a frame that would fit the screen. I went to different shops with my screen to see which frames fit, and eventually found one that could house the screen with the ribbon cable comforably dangling outside.
-        </p>
-        <p>
-          The next part (and the hardest) was building the component to house the Pi and the electronic portion of the screen. The last time I've worked in a workshop was back in Junior High so there was a lot I needed to learn.
-        </p>
-        <div style="overflow:hidden;">
-          <div>
-            <div style="float:right;">
-              <img src="assets/digitalPhotoframe/fuse33.jpg" style="max-height: 40vh;">
-              <p class="image-detail">
-                Throwing around ideas after taking the metal workshop class
-              </p>
-            </div>
-            To have access to a workshop, I went to take a metalshop orientation down at <a href="https://www.fuse33.com/">Fuse 33</a>, a MakerSpace which has a plethora of different equipment such as drill presses and band saws.
-            <br>The community is incredibly friendly and one member offered to laser me some standoffs to separate my circuit boards from touching the metal casing.
-            <br>There was some small scrap sheet metal lying around which were the perfect size to cover the back of my board and, along with some screws to hold my Pi in place, I had all the pieces I needed to assemble the final product.
-          </div>
-        </div>
-        
-        <h2>Setting the screen into the frame</h2>
-        <img src="assets/digitalPhotoframe/components.jpg">
-        <p>
-          The screen that I was using isn't completely centered, and the frame didn't perfectly fit it either, so I took some scrap balsa wood sheets and sawed/sanded off small tabs to place inside the picture frame, and secured the tabs to the frame using double sided tape.
-        </p>
-
-        <h2>Building the Back Panel</h2>
-        <div style="overflow:hidden;">
-          <img class="floating-right-image" src="assets/digitalPhotoframe/in_progress_2.jpg" style="max-height: 30vh; margin-left: 1rem;">
-          <p style="margin: 0">
-            With a metal sheet, I used a sheet metal shear to slice out the size and shape to slide into my picture frame. It's <b>VERY</b> important to grind and polish the corners, because if the sheet is too sharp it could slice the ribbon that connects the screen to the screen circuit board.
-            Then I made sure the circuits for the panel would line up with the ribbon sticking out of the fixed screen before using the drill press to bore holes for the screws.
-          </p>
-        </div>
-        <h2>Building the Cover</h2>
-        <div class="two-images">
-          <img src="assets/digitalPhotoframe/in_progress.jpg">
-          <img src="assets/digitalPhotoframe/drilled_metal.jpg">
-        </div>        
-        <p>
-          With another metal sheet, I measured out ample room to secure the Pi to it before cutting. I then used the sheet metal bender to form a cover from which I could attach screws to.
-          Measuring out enough room to attach the HDMI Cable to the Pi and the screen, I drilled more holes to secure my Pi.
-        </p>
-        <p>
-          It wasn't very convenient to power both the Pi and the Screen with two separate cables, since they would take up two plugs. I thought about getting USB splitters so I could power everything with one socket, but it would still be a hassle to deal with the two cables attached to the Pi. When I bought the screws for the board, the clerk in the hobby electronics store remarked that there might be a plug on the screen circuitry that could power the Pi, but I couldn't find anything in the specs.
-          <br>
-          <br>That's when I came to the realization that, since the voltage required for both the screen and Pi were the same, if the adapter amperage was greater than the sum of the required amperage of both the Pi and screen, I could divert some power from the screen into the Pi.
-          <br>
-        </p>
-        <div style="display: flex; justify-content: center">
-          <img src="assets/digitalPhotoframe/screen_power.png" style="margin: 0; max-width:50%; object-fit: contain"> 
-          <img src="assets/digitalPhotoframe/gpio_layout.png" style="margin: 0; max-width:50%; object-fit: contain"> 
-        </div>
-        <p class="image-detail">
-          Soldering the area outlined by the red onto either 5V pin (2,4), and the black onto the ground pin (6)
-        </p>
-        <p>
-          <br>
-          <b><i>Yes!</i></b>
-          <br>
-          I cut some wires and soldered them onto the back of the pins where the screen circuitry's power socket touched the circuit, and connected these wires into the GPIO pins into my Pi and <i>voila</i>, it all powered on with one line!
-        </p>
-      </div>
-      <div>
-        <h2>Ideas for Improvement</h2>
-        <div>
-          Two improvements I would have loved to do but didn't have time / the hardware for, would be making a cron job to pull photos daily off of Google Photos, and a way for users to choose when they want the device to turn off and on. 
-          For the ability to keep track of time, a separate RTC module would need to be connected via GPIO to the Pi (see first picture below Building the Cover).
-        </div>
-      </div>
+      <img src="assets/digitalPhotoframe/instructions/pi-imager.png">
+      <p>
+        Install the Diet-Pi OS for your Pi onto your PC. The OS for the Pi Zero should be the ARMv6 32-bit image due to the chipset the Zero is equipped with. To save the image, download the Raspberry Pi Imager, insert your micro SD card into your computer, and use the imager to move the OS into your SD card.
+      </p>
+      <p>
+        There will be 2 drives you can access from file explorer, and only 1 is openable. Open the openable drive, and make a new folder called pictures. This is where you will store images that will be displayed. Upload an image or two to test later on.
+      </p>
+      <p>
+        Now you will need to set up the Wi-Fi. On your micro SD card on your PC open up dietpi.txt in /boot and set 
+        <br><code>AUTO_SETUP_NET_WIFI_ENABLED</code> to '1', 
+        <br><code>AUTO_SETUP_NET_WIFI_COUNTRY_CODE</code> to your country, and 
+        <br><code>AUTO_SETUP_KEYBOARD</code> to 'us'. 
+        <br>In dietpi-wifi enter the appropriate Wi-Fi credentials for aWIFI_SSID and aWIFI_KEY for Entry 0. Save both files and eject the SD card.
+      </p>
+      <p>
+        Insert the SD card into the Pi and connect the screen, keyboard and power cable into your Pi.
+        <br>On the initial boot, the options you choose are pretty inconsequential; however, I would highly recommend you change your password for security.
+      </p>
+      <img src="assets/digitalPhotoframe/instructions/autostart.png">
+      <p>
+        After the initial boot, enter <code>dietpi-config</code>, go to AutoStart Options > Automatic Login > root (UID:0). This is for automating startup scripts to launch our image displayer.
+      </p>
     </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 class="section-title">Step 2: Software Setup</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="global_blog">
+      <img src="assets/digitalPhotoframe/instructions/login.png">
+      <p class="image-detail">
+        A major portion of this is loosely based off of <a href="https://die-antwort.eu/techblog/2017-12-setup-raspberry-pi-for-kiosk-mode/">this tutorial</a>, which you can read if there is something that's unclear.
+      </p>
+      <p>
+        First you need to install XServer and Openbox in order to have a UI as opposed to the terminal. 
+        <br>Enter <code>sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox</code>
+      </p>
+      <p>
+        Rather than using an inefficient web browser to display images, we'll use <a href="https://github.com/phillipberndt/pqiv">pqiv</a>, which is designed specifically to display images.
+        Enter <code>sudo apt-get install pqiv</code> to get the application that will be displaying our images.
+      </p>
+      <p>
+        In order to run pqiv we need an instance of Openbox running. We can do this by modifying the startup script for Openbox/XServer. 
+        <br>Open the startup script using <code>nano /etc/xdg/openbox/autostart</code>. 
+      </p>
+      <p>
+        Enter the following:
+        <code>
+          <br># Disable any form of screen saver / screen blanking / power management
+          <br>xset s off
+          <br>xset s noblank
+          <br>xset -dpms
+          <br>
+          <br># Allow quitting the X server with CTRL-ATL-Backspace
+          <br>setxkbmap -option terminate:ctrl_alt_bksp
+          <br>
+          <br># Start pqiv
+          <br>pqiv /boot/pictures
+        </code>
+      </p>
+      <p>
+        Now that you've set up the GUI and pqiv, type <code>startx -- -nocursor</code> and you should be able to see a screen similar to this, with your uploaded picture.
+      </p>
+      <img src="assets/digitalPhotoframe/instructions/picture-works.png">
+      <p>
+        There's a lot more customization you can achieve with pqiv which you can find on the <a href="https://manpages.debian.org/testing/pqiv/pqiv.1.en.html">manual pages</a>. I personally used these flags and parameters for my final project:
+        <br><code>pqiv -fctisF --slideshow-interval=20 --fade-duration=0.2 /boot/pictures</code>. 
+        <br>In a nutshell, it's full-screen, slideshow with every picture being displayed for 20 seconds.
+      </p>
+      <p>
+        Exit out of the GUI by hitting ctrl+alt+backspace. Now we need to run Openbox on login rather than having to type startx everytime.
+        We can accomplish this by modifying /etc/rc.local or through crontab. Since crontab is more versatile we'll modify that. 
+        Type <code>crontab -e</code> to open the crontab for your user (in this case root). 
+        <br>At the bottom enter <code>@reboot startx -- -nocursor</code>. Restart your Pi with <code>shutdown -r 0</code> and pqiv should be running without any user input at all.
+      </p>
+      <p>
+        Tip: If your slideshow runs slowly on your chosen screen, you might squeeze some better performance by looking into the overclock potential of your Pi!
+      </p>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 class="section-title">Step 3: Build Frame</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="global_blog">
+      <p>
+        This part of the tutorial breaks down into more of an informal, casual explanation of how I built the physical portion of the project. If you've gotten this far you should wing it with your own design and procedure!
+      </p>
+      <p>
+        The first item I needed was a frame that would fit the screen. I went to different shops with my screen to see which frames fit, and eventually found one that could house the screen with the ribbon cable comforably dangling outside.
+      </p>
+      <p>
+        The next part (and the hardest) was building the component to house the Pi and the electronic portion of the screen. The last time I've worked in a workshop was back in Junior High so there was a lot I needed to learn.
+      </p>
+      <div style="overflow:hidden;">
+        <div>
+          <div style="float:right;">
+            <img src="assets/digitalPhotoframe/fuse33.jpg" style="max-height: 40vh;">
+            <p class="image-detail">
+              Throwing around ideas after taking the metal workshop class
+            </p>
+          </div>
+          To have access to a workshop, I went to take a metalshop orientation down at <a href="https://www.fuse33.com/">Fuse 33</a>, a MakerSpace which has a plethora of different equipment such as drill presses and band saws.
+          <br>The community is incredibly friendly and one member offered to laser me some standoffs to separate my circuit boards from touching the metal casing.
+          <br>There was some small scrap sheet metal lying around which were the perfect size to cover the back of my board and, along with some screws to hold my Pi in place, I had all the pieces I needed to assemble the final product.
+        </div>
+      </div>
+      
+      <h2>Setting the screen into the frame</h2>
+      <img src="assets/digitalPhotoframe/components.jpg">
+      <p>
+        The screen that I was using isn't completely centered, and the frame didn't perfectly fit it either, so I took some scrap balsa wood sheets and sawed/sanded off small tabs to place inside the picture frame, and secured the tabs to the frame using double sided tape.
+      </p>
+
+      <h2>Building the Back Panel</h2>
+      <div style="overflow:hidden;">
+        <img class="floating-right-image" src="assets/digitalPhotoframe/in_progress_2.jpg" style="max-height: 30vh; margin-left: 1rem;">
+        <p style="margin: 0">
+          With a metal sheet, I used a sheet metal shear to slice out the size and shape to slide into my picture frame. It's <b>VERY</b> important to grind and polish the corners, because if the sheet is too sharp it could slice the ribbon that connects the screen to the screen circuit board.
+          Then I made sure the circuits for the panel would line up with the ribbon sticking out of the fixed screen before using the drill press to bore holes for the screws.
+        </p>
+      </div>
+      <h2>Building the Cover</h2>
+      <div class="two-images">
+        <img src="assets/digitalPhotoframe/in_progress.jpg">
+        <img src="assets/digitalPhotoframe/drilled_metal.jpg">
+      </div>        
+      <p>
+        With another metal sheet, I measured out ample room to secure the Pi to it before cutting. I then used the sheet metal bender to form a cover from which I could attach screws to.
+        Measuring out enough room to attach the HDMI Cable to the Pi and the screen, I drilled more holes to secure my Pi.
+      </p>
+      <p>
+        It wasn't very convenient to power both the Pi and the Screen with two separate cables, since they would take up two plugs. I thought about getting USB splitters so I could power everything with one socket, but it would still be a hassle to deal with the two cables attached to the Pi. When I bought the screws for the board, the clerk in the hobby electronics store remarked that there might be a plug on the screen circuitry that could power the Pi, but I couldn't find anything in the specs.
+        <br>
+        <br>That's when I came to the realization that, since the voltage required for both the screen and Pi were the same, if the adapter amperage was greater than the sum of the required amperage of both the Pi and screen, I could divert some power from the screen into the Pi.
+        <br>
+      </p>
+      <div style="display: flex; justify-content: center">
+        <img src="assets/digitalPhotoframe/screen_power.png" style="margin: 0; max-width:50%; object-fit: contain"> 
+        <img src="assets/digitalPhotoframe/gpio_layout.png" style="margin: 0; max-width:50%; object-fit: contain"> 
+      </div>
+      <p class="image-detail">
+        Soldering the area outlined by the red onto either 5V pin (2,4), and the black onto the ground pin (6)
+      </p>
+      <p>
+        <br>
+        <b><i>Yes!</i></b>
+        <br>
+        I cut some wires and soldered them onto the back of the pins where the screen circuitry's power socket touched the circuit, and connected these wires into the GPIO pins into my Pi and <i>voila</i>, it all powered on with one line!
+      </p>
+    </div>
+  </mat-expansion-panel>
+  <div>
+    <h2 class="section-title">Ideas for Improvement</h2>
+    <div>
+      Two improvements I would have loved to do but didn't have time / the hardware for, would be making a cron job to pull photos daily off of Google Photos, and a way for users to choose when they want the device to turn off and on. 
+      For the ability to keep track of time, a separate RTC module would need to be connected via GPIO to the Pi (see first picture below Building the Cover).
+    </div>
+  </div>
 </div>

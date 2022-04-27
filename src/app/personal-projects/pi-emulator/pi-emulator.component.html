@@ -1,25 +1,31 @@
-<h3>Diet-Pi Emulator</h3>
-<p>
-    With the current supply chain issues, chip shortages, and an increase in progamming hobbyists mainly caused by the current crisis <i>*cough cough</i> it can be hard to get the hardware required to start projects.
-    When your desired Pi Hardware finally becomes available, you can port over what you've done so far - No need to rebuild your proejcts from scratch!
-</p>
-<p>
-    Since I wanted to take some screen shots for my digital photoframe tutorial I managed to get a working emulator up and running. Here's the steps I took to get it all set up.
-</p>
-
-<mat-divider></mat-divider>
-
-<div class="global_blog">
-    <h4>Steps to Install</h4>
-    <p>We'll be running <a href="https://www.qemu.org/">QEMU: A generic and open machine emulator and virtualizer</a>. Download QEMU for your respective OS (I'm running 64 bit Windows), and run through the installer.</p>
-    <p>Once that's done, navigate to where qemu was installed at. There should be a list of different qemu applications for different architects, but the one we're interested in is qemu-system-arm.</p>
-    <p>Our next step is to get the image, kernel, and dtb file for qemu-system-arm.</p>
-    <p>You can download the Diet-Pi image at <a href="https://dietpi.com">DietPi.com</a>. The image contains the operating system for the Pi as well as any data we store in it, such as pictures. For this tutorial choose the ARMv6 32-bit image, which is the DietPi version for the Raspberry Pi Zero.</p>
+<div class="body">
+    <div class="title">Diet-Pi Emulator</div>
     <p>
-        Next we need the kernels and dtb files. You could theoretically download and build straight from the Linux repository on GitHub, but that was too much of a hassle on my Windows machine so I got everything from the <a href="https://github.com/dhruvvyas90/qemu-rpi-kernel">dhruvvyas90's qemu-rpi-kernel</a> repository on GitHub, and I highly recommend you to do the same!
-        To emulate the software for the Raspberry Pi (2,3,4) and Zero models, download `kernel-qemu-4.14.79-stretch` and `versatile-pb-bullseye-5.10.63.dtb`. From here run the following command:
-        `qemu-system-arm.exe -machine versatilepb -m 256 -cpu arm1176 -serial stdio -hda yourImageHere -kernel kernel-qemu-4.14.79-stretch -dtb versatile-pb-bullseye-5.10.63.dtb -append "root=/dev/sda2 rootfstype=ext4 rw panic=1" -no-reboot`
-        Although the versatilepb machine won't have the same specs as the hardware, you should be able to use the image in the aforementioned Pis.
+        With the current supply chain issues, chip shortages, and an increase in progamming hobbyists due to various crisis', it can be hard to get the hardware required to start projects.
+        When your desired Pi Hardware finally becomes available, you can port over what you've done so far - No need to rebuild your projects from scratch!
     </p>
-    <p>Personal note: I wasn't able to get the raspi0 hardware configuration properly running since the kernels and dtb files I extracted from the Diet-Pi image didn't work, but if you were able to get them to work I would love to hear about it!</p>
+    <p>
+        Since I wanted to take some screen shots for my digital photoframe tutorial I managed to get a working emulator up and running. Here's the steps I took to get it all set up.
+    </p>
+        
+    <mat-expansion-panel class='no-padding-bottom list-of-tech'>
+        <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h2 class="section-title">Steps to Install</h2>
+        </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="global_blog">
+            <p>We'll be running <a href="https://www.qemu.org/">QEMU: A generic and open machine emulator and virtualizer</a>. Download QEMU for your respective OS (I'm running 64 bit Windows), and run through the installer.</p>
+            <p>Once that's done, navigate to where qemu was installed at. There should be a list of different qemu applications for different architects, but the one we're interested in is qemu-system-arm.</p>
+            <p>Our next step is to get the image, kernel, and dtb file for qemu-system-arm.</p>
+            <p>You can download the Diet-Pi image at <a href="https://dietpi.com">DietPi.com</a>. The image contains the operating system for the Pi as well as any data we store in it, such as pictures. For this tutorial choose the ARMv6 32-bit image, which is the DietPi version for the Raspberry Pi Zero.</p>
+            <p>
+                Next we need the kernels and dtb files. You could theoretically download and build straight from the Linux repository on GitHub, but that was too much of a hassle on my Windows machine so I got everything from the <a href="https://github.com/dhruvvyas90/qemu-rpi-kernel">dhruvvyas90's qemu-rpi-kernel</a> repository on GitHub.
+                To emulate the software for the Raspberry Pi (2,3,4) and Zero models, download `kernel-qemu-4.14.79-stretch` and `versatile-pb-bullseye-5.10.63.dtb`. From here run the following command:
+                `qemu-system-arm.exe -machine versatilepb -m 256 -cpu arm1176 -serial stdio -hda yourImageHere -kernel kernel-qemu-4.14.79-stretch -dtb versatile-pb-bullseye-5.10.63.dtb -append "root=/dev/sda2 rootfstype=ext4 rw panic=1" -no-reboot`
+                Although the versatilepb machine won't have the same specs as the hardware, you should be able to use the image in the aforementioned Pis.
+            </p>
+            <p>Personal note: I wasn't able to get the raspi0 hardware configuration properly running since the kernels and dtb files I extracted from the Diet-Pi image didn't work, but if you were able to get them to work I would love to hear about it!</p>
+        </div>
+    </mat-expansion-panel>
 </div>
