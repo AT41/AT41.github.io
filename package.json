@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "thisIsNeededForIvy": "ngcc",
-    "pushToGHPages": "ng build --prod --output-path docs --base-href /MySite/ && git add -A && git commit && git push"
+    "pushToGHPages": "ng build --prod --output-path docs --base-href && git add -A && git commit && git push"
   },
   "private": true,
   "dependencies": {
