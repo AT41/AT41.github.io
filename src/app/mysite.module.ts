@@ -14,6 +14,7 @@ import { PasswordStrengthProjectComponent } from './personal-projects/password-s
 import { DigitalPhotoframeComponent } from './personal-projects/digital-photoframe/digital-photoframe.component';
 import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/japanese-website.component';
 import { PiEmulatorComponent } from './personal-projects/pi-emulator/pi-emulator.component';
+import { LinkedInRedirect } from './guards/LinkedInRedirect';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { PiEmulatorComponent } from './personal-projects/pi-emulator/pi-emulator
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [LinkedInRedirect],
   bootstrap: [MySiteComponent]
 })
 export class MySiteModule { }
