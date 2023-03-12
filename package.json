@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "thisIsNeededForIvy": "ngcc",
-    "pushToGHPages": "ng build --prod --output-path docs && git add -A && git commit && git push",
-    "runBuildLocally": "ng build --prod --output-path dist && http-server ./dist"
+    "pushToGHPages": "ng build --prod --output-path docs && @powershell copy docs/index.html docs/404.html && git add -A && git commit && git push",
+    "runBuildLocally": "ng build --prod --output-path dist && @powershell copy dist/index.html dist/404.html && http-server ./dist"
   },
   "private": true,
   "dependencies": {
