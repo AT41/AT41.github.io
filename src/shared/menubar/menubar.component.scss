@@ -17,3 +17,7 @@ a {
 mat-icon {
     align-self: center;
 }
+
+:host ::ng-deep mat-toolbar {
+    padding: 0;
+}

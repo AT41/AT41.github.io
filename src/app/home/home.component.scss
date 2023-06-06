@@ -56,11 +56,6 @@ $margin: min(32px, 4vw);
     grid-column: 2;
     grid-row-start: 1;
     grid-row-end: 3;
-
-    img {
-        max-height: max(20rem, 40%);
-        max-width: 100%;
-    }
 }
 
 .body {
