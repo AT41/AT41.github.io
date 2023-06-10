@@ -15,6 +15,7 @@ import { DigitalPhotoframeComponent } from './personal-projects/digital-photofra
 import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/japanese-website.component';
 import { PiEmulatorComponent } from './personal-projects/pi-emulator/pi-emulator.component';
 import { LinkedInRedirect } from './guards/LinkedInRedirect';
+import { ScrollIndicatorComponent } from './home/scroll-indicator/scroll-indicator.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LinkedInRedirect } from './guards/LinkedInRedirect';
     PasswordStrengthProjectComponent,
     DigitalPhotoframeComponent,
     JapaneseWebsiteComponent,
-    PiEmulatorComponent
+    PiEmulatorComponent,
+    ScrollIndicatorComponent
   ],
   imports: [
     BrowserModule,
