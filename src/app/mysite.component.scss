@@ -1,4 +1,9 @@
 @import "../styles.scss";
+
+$background-color-r: 255;
+$background-color-g: 242;
+$background-color-b: 204;
+
 .background {   
     background-image: url('../assets/usj.jpg');
     background-size: max(120%, 2000px), 0;
@@ -17,14 +22,13 @@
     margin-top: -8rem;
     width: 100%;
     position: absolute;
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgb($background-color-r, $background-color-g, $background-color-b));
     bottom: 0;
 }
 
 .main {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba($background-color-r, $background-color-g, $background-color-b, 0.2);
+    min-height: 100%;
 }
 
 router-outlet {

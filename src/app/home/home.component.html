@@ -1,9 +1,9 @@
-<div class='grid'>
-    <mat-card class='main'>
+<div class='grid' contents>
+    <mat-card class='main' [contentsSection]="'section-one'" bottomMargin="100">
         <mat-card-content>
             <img src="assets/me_full.jpg">
             <div>
-                <mat-card-title class="title title-long">Anthony Tang - Software Developer</mat-card-title>
+                <mat-card-title class="title title-long">Anthony Tang <br>Software Developer</mat-card-title>
                 <mat-card-title class="title title-short">Anthony Tang</mat-card-title>
                 <mat-card-subtitle class="subtitle">
                     Bachelor of Science in Computer Science (3.68 GPA Major) - Spring 2021 <br>
@@ -11,48 +11,109 @@
                 </mat-card-subtitle>
             </div>
         </mat-card-content>
-
-        <ul class="contents-table" contentsTable>
-            <li><a href="#section-one" contentsLink pageScroll>Section One</a></li>
-            <li><a href="#section-two" contentsLink pageScroll>Section Two</a></li>
-            <li><a href="#section-three" contentsLink pageScroll>Section Three</a></li>
-            <li><a href="#section-four" contentsLink pageScroll>Section Four</a></li>
-            <li><a href="#section-five" contentsLink pageScroll>Section Five</a></li>
-          </ul>
     </mat-card>
-
-
-    <mat-card class='below-main'>
-        <mat-card-header>
-            <mat-card-title>A Brief Introduction</mat-card-title>
-        </mat-card-header>
-        <mysite-circular-image-holder>
-            <img src="assets/me_square.jpg">
-        </mysite-circular-image-holder>
+    <mat-card class='below-main' [contentsSection]="'section-two'" topMargin="300">
+        <div class="center-container">
+            <mysite-circular-image-holder>
+                <img src="assets/me_square.jpg">
+            </mysite-circular-image-holder>
+        </div>
         <mat-card-content>
             Throughout my education growing up in Calgary, I have always loved science and mathematics even from a young age. 
             After trying my first Computer Science elective at Western High School and winning my first programming competition, 
             I decided to pursue it as my major at U of C.<br>
-            
+            <br>
             During my undergraduate I found myself taking tons of Japanese language courses, and loved meeting people who shared the same passions about learning as I did.
             Volunteering as a Teaching Assistant for lower level classes and conversing with others in Japanese was exciting and, despite language classes taking up more time 
             to study for than all my other classes combined, I never grew tired of it and I'm proud that I stuck with it through my degree.<br>
-
-            At the top I've linked some of my personal projects I was passionate in developing throughout the years.<br>
-            <div>
-                For my fourth year I did a 16 month internship, making medical-based applications with TypeScript and Angular. It was startling to
-                realize how little my university classes did to prepare me for my internship, since I had no technical experience with real web development
-                at the time. Fortunately for me, my boss was patient and understanding as I stumbled around my first month, and I was able to pick up
-                TypeScript and Angular, learn to use git through the CLI, and a lot more.
-                As I started getting into the groove of working, I looked for Japanese tutors and took one on one lessons Tuesdays and Thursdays, so
-                my Japanese would not get rusty during my hiatus away from university classes. Overall, my internship experience was very useful towards my growth as a developer.
-            </div>
+            <br>
+            Here you can find some of my <a href="./personal-projects">personal projects</a> I developed throughout the years.<br>
         </mat-card-content>
     </mat-card> 
-</div>
-<div class='body'>
-    <div class='content'>
-    </div>
+
+    <mat-card class="education" [contentsSection]="'section-three'" topMargin="300">
+        <mat-card-title>
+            Education
+        </mat-card-title>
+        <div>
+            <img src="assets/uofc.jpg">
+            <mat-card-content>
+                <div>
+                    <mat-card-title>
+                        University of Calgary
+                    </mat-card-title>
+                    <mat-card-subtitle class="subtitle">
+                        Bachelors of Science<br>
+                        Computer Science + Internship
+                    </mat-card-subtitle>
+                    <div>
+                        Fall 2015 - Spring 2021<br>
+                        3.68 GPA Major<br>
+                    </div>
+                </div>
+            </mat-card-content>
+        </div>
+    </mat-card>
+
+    <mat-card class="work-experience" [contentsSection]="'section-four'" topMargin="300">
+        <mat-card-title>
+            Work Experience
+        </mat-card-title>
+        <mat-card>
+            <mat-card-title>
+                Pixineers Co. Fullstack
+            </mat-card-title>
+            <mat-card-subtitle>
+                16 month internship, making medical-based applications with TypeScript and Angular.<br>
+            </mat-card-subtitle>
+            <mat-card-content>
+                <ul>
+                    <li>
+                        Dry Eye Web Form: A client web app used in Calgary-based clinics to record patient details. Interacted with doctors to fix issues on-site.
+                    </li>
+                    <li>
+                        Face-Touchup: A web app allowing users to manipulate pictures and send them to specific plastic surgery clinics.
+                    </li>
+                    <li>
+                        CORA/PHORA Heart Diagnosis: A web app using Bayesian Neural Networks trained on previous cases to provide a suggestive diagnosis on rare heart conditions.
+                    </li>
+                </ul>
+                <br>
+                Used Angular 7, Command-line Git, NodeJS + Express Backend. Researched and implemented multiple web libraries such as C3.js, Ng-Select, Angular Materials, and more.
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-title>
+                Nexix Inc. Fullstack
+            </mat-card-title>
+            <mat-card-subtitle>
+                2 year full-time as an Angular/Hibernate/Adobe Flex developer. Solo developer for an online pharmaceutical shipping application, while working on other projects.
+            </mat-card-subtitle>
+            <mat-card-content>
+                <ul>
+                    <li>
+                        Developed and maintained all key areas of the application, including designing the MariaDB Instance, building new workflows for the Adobe Flex Client App,
+                        maintenance and development of the Angular Frontend, and an in-house Java Hibernate backend.
+                    </li>
+                    <li>
+                        Implemented various different healthcare-based APIs to allow deferrals of prescriptions to locations not yet licensed, allowing for country-wide shipments.
+                        Led development of the implementation of Surescripts, modifying the entire pharmacist client application to accomodate for new streamlined workflows.
+                    </li>
+                    <li>
+                        Experienced with multitudes of APIs and softwares associated with project lifecycle, such as Crystal Reports, Hylafax, Converge Pay, ZPL Labelary, Google Analytics, Etc.
+                    </li>
+                </ul>
+            </mat-card-content>
+        </mat-card>
+    </mat-card>
+
+
+    <ul class="contents-table table-sticky" contentsTable>
+        <li><a href="#section-one" contentsLink>Home</a></li>
+        <li><a href="#section-two" contentsLink>About Me</a></li>
+        <li><a href="#section-three" contentsLink>Education</a></li>
+        <li><a href="#section-four" contentsLink>Work Experience</a></li>
+    </ul>
     
 </div>
 <mysite-footer></mysite-footer>
