@@ -2,4 +2,7 @@
 
 mat-card {
     margin: $outer-margin;
+    .title {
+        width: 100%;
+    }
 }

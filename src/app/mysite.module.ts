@@ -16,6 +16,7 @@ import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/j
 import { PiEmulatorComponent } from './personal-projects/pi-emulator/pi-emulator.component';
 import { LinkedInRedirect } from './guards/LinkedInRedirect';
 import { ContentsModule } from 'angular-contents';
+import { EinkBusinesscardComponent } from './personal-projects/eink-businesscard/eink-businesscard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ContentsModule } from 'angular-contents';
     PasswordStrengthProjectComponent,
     DigitalPhotoframeComponent,
     JapaneseWebsiteComponent,
-    PiEmulatorComponent
+    PiEmulatorComponent,
+    EinkBusinesscardComponent
   ],
   imports: [
     BrowserModule,

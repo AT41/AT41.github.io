@@ -1,0 +1,148 @@
+<div class='body'>
+    <div class='description center'>
+        <div class='title'>E-Ink Business Card</div>
+        <img src='assets/einkDisplay/main.jpg' style="max-width: 50%">
+        <span>
+            A small battery-powered E-Ink display. Additional guides are linked below.
+        </span>
+    </div>
+    
+    <mat-divider></mat-divider>
+  
+    <mat-expansion-panel class='no-padding-bottom list-of-tech'>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h2 class="section-title">Requirements</h2>
+            </mat-panel-title>
+            <mat-panel-description>
+              A list of parts needed to construct the final product
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="requirements-grid">
+            <mat-card>
+                <mat-card-title>Seeeduino XIAO</mat-card-title>
+                <mat-card-subtitle>Tiny Arduino</mat-card-subtitle>
+                <div class="center">
+                    <img src="assets/einkDisplay/seeeduino.jpg" mat-card-image>
+                </div>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>Adafruit 2.13" E-Ink Display</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+                <div class="center">
+                    <img src="assets/einkDisplay/adafruit-eink-display.png" mat-card-image>
+                </div>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>Custom Printed Circuit Board</mat-card-title>
+                <mat-card-subtitle>Designed using EasyEDA</mat-card-subtitle>
+                <div class="center">
+                    <img src="assets/einkDisplay/pcb.png" mat-card-image>
+                </div>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>2025 Coin Cell Holder (2)</mat-card-title>
+                <mat-card-subtitle>BAT-HLD-001</mat-card-subtitle>
+                <div class="center">
+                    <img src="assets/einkDisplay/coinholder.webp" mat-card-image>
+                </div>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>Slide Switch</mat-card-title>
+                <mat-card-subtitle>JS102011JAQN</mat-card-subtitle>
+                <div class="center">
+                    <img src="assets/einkDisplay/switch.webp" mat-card-image>
+                </div>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>SD Card</mat-card-title>
+                <mat-card-subtitle>To store images and stylings</mat-card-subtitle>
+                <div class="center">
+                    <img src="assets/einkDisplay/micro-sd.jpg" mat-card-image>
+                </div>
+            </mat-card>
+            <!--Duplicate the element above, but call it Soldering Kit-->
+            <mat-card>
+                <mat-card-title>Soldering Kit</mat-card-title>
+                <mat-card-subtitle>Soldering Iron + Solder</mat-card-subtitle>
+                <div class="center">
+                    <img src="assets/einkDisplay/soldering.jpg" mat-card-image>
+                </div>
+            </mat-card>
+        </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h2 class="section-title">Step 1: Software Setup</h2>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <div class="global_blog">
+            <p>
+                First, you need to install Arduino IDE. Follow the guide at <a href="https://wiki.seeedstudio.com/Seeeduino-XIAO/">the official Seeeduino XIAO site</a> to set up the Arduino IDE and get the Seeeduino to blink. You can choose to use MicroPython or Arduino Code which is basically C/C++. The upcoming libraries use Arduino Code, so that is what I used for my code.<br>
+                I found this link helpful when learning how to program the Seeeduino: <a href="https://www.arduino.cc/reference/en/">Click Me!</a>
+            </p>
+            <div class="footnote">
+                There can be cases where your program cannot get uploaded after hard resetting the Seeeduino, which may have been caused due to a segmentation fault. If this is the case, you can unbrick it by 
+                <a href='https://forum.seeedstudio.com/t/how-to-unbrick-a-dead-xiao-using-raspberry-pi-guide-openocd/253990'>reinstalling the bootloader</a> using a Raspberry Pi.
+                Using the SWDIO and SWCLK on the back, you can link it to the GPIO pins on the Pi to transfer the fixed bootloader.
+            </div>
+            <p>
+                To start programming the E-Ink panel, you'll need to follow <a href="https://learn.adafruit.com/adafruit-eink-display-breakouts/overview">the guide give by Adafruit</a>. This tutorial can show you how to wire up and download the specific libraries to get everything working.
+            </p>
+            <div class="footnote">
+                I would recommend using a breadboard to start off connecting the different components together, though it's possible to temporarily use a bunch of male header pins to connect the display to the Seeeduino.
+            </div>
+            <p>
+                After playing around with displaying images and printing text, you may notice that the screen forces you to flood the screen between black and white before it rerenders. It does this due to the nature of E-Ink Technology.<br>
+                Inside the display, there are millions of tiny charged particles suspended in fluid. Applying a voltage across certain areas causes these particles to float or sink, which produces a clear image. Sometimes they get stuck, hence why the screen will flash black and white before displaying new images.<br>
+                While this is a downside to E-Ink, the upside is that the display will be shown even after it gets turned off.<br>
+                Our next step is to get rid of the jarring flashing of the screen, and look into partial updates. Despite Adafruit stating that the board does not support these partial updates, I would use the third-party library <a href="https://github.com/ZinggJM/GxEPD2">here</a>.
+                If you're using other displays you'll want to search through the source code to find which constructor you will need, but for the 2.13" Adafruit MonoInk we'll use GxEPD2_213_B74.
+            </p>
+            <p>
+                The source code for this project specifically is linked here on my Github.<br>
+            </p>
+            <ul>
+                <li>
+                    The number entered in Serial.begin() is the Baud rate, which is the rate of signal changes per second that goes through via Serial communication protocol. Setting it to 9600 works.
+                </li>
+                <li>
+                    The display is not able to remember which pixel is what color, so you will need to manually clear the area before you display anything in it.
+                </li>
+                <li>
+                    <code>ImageDisplay.drawBitmapFromSD_Buffered()</code> will draw an image with a partial update.
+                </li>
+            </ul>
+        </div>
+    </mat-expansion-panel>
+    <!--q: How do you create a clickable element that allows users to download a zip file?-->
+    <!--a: Use the <a> tag and set the href to the link of the file-->
+
+
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h2 class="section-title">Step 2: Custom Circuit Board Printing</h2>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="global_blog">
+            If you're looking for a different design than my own (<a href="assets/einkDisplay/Gerber_PCB_Business Card_3_2023-03-30.zip">Linked Here!</a>), I would recommend using EasyEDA to design your own circuit board. <br>
+            EasyEDA is a free online software that allows you to design circuit boards and generate Gerber files, which are the files that PCB printing companies use to print your board. There's a bit of a learning curve to the software, especially if you're not familiar with circuit boards, so I recommend watching tutorials that you can find on Youtube. <br>
+            <br>
+            <!--Create 2 side-by-side pictures like what I used in digital-photo-frame.html-->
+            <div class="two-images">
+                <img src="assets/einkDisplay/pcb-sketch.png" class="inline-img">
+                <img src="assets/einkDisplay/pcb-components.png" class="inline-img">
+            </div>       
+            <br>
+            <br>
+            You can use the schematic editor to place components and connect them together. You can also use the PCB editor to place the components in a more organized manner. The PCB editor will also allow you to place copper traces to connect the components together. Once you're done with the design, you can click on the Fabrication Output button to generate the Gerber files. It takes around 2 weeks (depending on shipping) for your PCB to be built and arrive on your doorstep. <br>
+            <br>
+            All that's left is to solder the components onto the board. Especially if you're new, I recommend using a multimeter to check for continuity between each part. <br>
+        </div>
+    </mat-expansion-panel>
+</div>
