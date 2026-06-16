@@ -9,58 +9,23 @@
     display: grid;
     grid-row-gap: 10rem;
     grid-template-rows: 100vh auto auto auto 20vh;
-    grid-template-columns: 70vw auto;
+    grid-template-columns: 1fr;
     margin: 0 $outer-margin 0 $outer-margin;
     align-items: start;
-    
-    @media only screen and (min-width: 1601px) {
-        .contents-table {
-            margin-top: 12vh;
-            justify-self: right;
-            grid-column-start: 2;
-            grid-row-start: 1;
-            grid-row-end: 1;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 2vw;
-    
-            > li {
-                font-size: large;
-                a {
-                    text-align: right;
-                }
-            }
-        }
+
+    @media only screen and (min-width: 901px) {
+        padding-right: 11rem;
     }
-    @media only screen and (max-width: 1600px) {
-        .contents-table {  
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            padding-left: 0px;
-            justify-content: space-around;
-            width: calc(100%);
-            > li {
-                font-size: large;
-                a {
-                    text-align: center;
-                }
-            }
-        }
+
+    @media only screen and (max-width: 900px) {
+        padding-bottom: 3.5rem;
     }
 }
 
 mat-card {
     background-color: rgba(255, 255, 255, 0.9);
     overflow-y: auto;
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column: 1;
 
     > mat-card-title {
         margin-top: 2rem;
@@ -189,11 +154,6 @@ $margin: min(32px, 4vw);
 
 .secondary {
     width: 100%;
-    grid-column: 2;
-}
-
-.contents-table {
-    float: right;
 }
 
 .work-experience {

@@ -4,11 +4,10 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { AngularMaterialsModule } from './angular-materials/angular-materials.module';
 import { RouterModule } from '@angular/router';
 import { CircularImageHolderComponent } from './circular-image-holder/circular-image-holder.component';
-
-
+import { TableOfContentsComponent } from './table-of-contents/table-of-contents.component';
 
 @NgModule({
-  declarations: [MenubarComponent, CircularImageHolderComponent],
+  declarations: [MenubarComponent, CircularImageHolderComponent, TableOfContentsComponent],
   imports: [
     CommonModule,
     AngularMaterialsModule,
@@ -17,6 +16,7 @@ import { CircularImageHolderComponent } from './circular-image-holder/circular-i
   exports: [
     MenubarComponent,
     CircularImageHolderComponent,
+    TableOfContentsComponent,
     AngularMaterialsModule
   ]
 })

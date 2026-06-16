@@ -1,0 +1,7 @@
+<ul class="contents-table">
+    <li *ngFor="let section of sections">
+        <a [href]="'#' + section.id"
+           [class.active]="activeSection === section.id"
+           (click)="scrollTo(section.id, $event)">{{ section.label }}</a>
+    </li>
+</ul>

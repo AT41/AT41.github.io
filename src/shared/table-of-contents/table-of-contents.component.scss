@@ -1,0 +1,70 @@
+:host {
+    display: block;
+    z-index: 2;
+}
+
+.contents-table {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+.contents-table a {
+    border-radius: 4px;
+    display: block;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding: 0.3rem 0.6rem;
+    color: #444;
+    text-decoration: none;
+}
+
+.contents-table a.active {
+    background-color: #000;
+    color: #fff;
+}
+
+@media only screen and (min-width: 901px) {
+    :host {
+        position: fixed;
+        top: 50%;
+        right: max(2vw, 4vw);
+        transform: translateY(-50%);
+    }
+
+    .contents-table > li {
+        font-size: large;
+
+        a {
+            text-align: right;
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    :host {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .contents-table {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        justify-content: space-around;
+        width: 100%;
+
+        > li {
+            font-size: large;
+
+            a {
+                text-align: center;
+            }
+        }
+    }
+}

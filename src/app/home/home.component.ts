@@ -1,16 +1,16 @@
-import { Input, Output } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component } from '@angular/core';
+import { TocSection } from 'src/shared/table-of-contents/table-of-contents.component';
 
 @Component({
   selector: 'mysite-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class HomeComponent {
+  tocSections: TocSection[] = [
+    { id: 'section-one', label: 'Home' },
+    { id: 'section-two', label: 'About Me' },
+    { id: 'section-three', label: 'Education' },
+    { id: 'section-four', label: 'Work Experience' },
+  ];
 }

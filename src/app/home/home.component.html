@@ -1,5 +1,5 @@
-<div class='grid' contents>
-    <mat-card class='main' [contentsSection]="'section-one'" bottomMargin="100">
+<div class='grid'>
+    <mat-card class='main' id="section-one">
         <mat-card-content>
             <img src="assets/me_full.jpg">
             <div>
@@ -12,7 +12,7 @@
             </div>
         </mat-card-content>
     </mat-card>
-    <mat-card class='below-main' [contentsSection]="'section-two'" topMargin="300">
+    <mat-card class='below-main' id="section-two">
         <div class="center-container">
             <mysite-circular-image-holder>
                 <img src="assets/me_square.jpg">
@@ -31,7 +31,7 @@
         </mat-card-content>
     </mat-card> 
 
-    <mat-card class="education" [contentsSection]="'section-three'" topMargin="300">
+    <mat-card class="education" id="section-three">
         <mat-card-title>
             Education
         </mat-card-title>
@@ -55,7 +55,7 @@
         </div>
     </mat-card>
 
-    <mat-card class="work-experience" [contentsSection]="'section-four'" topMargin="300">
+    <mat-card class="work-experience" id="section-four">
         <mat-card-title>
             Work Experience
         </mat-card-title>
@@ -106,14 +106,6 @@
             </mat-card-content>
         </mat-card>
     </mat-card>
-
-
-    <ul class="contents-table table-sticky" contentsTable>
-        <li><a href="#section-one" contentsLink>Home</a></li>
-        <li><a href="#section-two" contentsLink>About Me</a></li>
-        <li><a href="#section-three" contentsLink>Education</a></li>
-        <li><a href="#section-four" contentsLink>Work Experience</a></li>
-    </ul>
-    
 </div>
+<mysite-table-of-contents [sections]="tocSections"></mysite-table-of-contents>
 <mysite-footer></mysite-footer>
