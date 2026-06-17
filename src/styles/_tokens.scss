@@ -1,0 +1,53 @@
+$color-bg: #0b1120;
+$color-bg-gradient-end: #0f172a;
+$color-surface: #162032;
+$color-surface-elevated: #0d1526;
+$color-text: #e2e8f0;
+$color-muted: #8899aa;
+$color-accent: #818cf8;
+$color-accent-hover: #6366f1;
+$color-border: #1e3a5f;
+$radius-md: 12px;
+$radius-sm: 8px;
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+$content-max-width: 75%;
+$content-max-width-factor: 0.75;
+$page-max-width: 960px;
+$font-sans: 'Inter', Roboto, 'Helvetica Neue', sans-serif;
+$header-height: 3.5rem;
+$outer-margin: max(1.5rem, 4vw);
+$page-padding-top: 2rem;
+$page-padding-bottom: 4rem;
+$page-padding-bottom-mobile: 5rem;
+$page-padding-inline: $outer-margin;
+$page-padding-inline-right-desktop: 17rem;
+$page-shell-desktop-min: 901px;
+
+@mixin card-surface {
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+}
+
+@mixin section-heading {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: $color-text;
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid $color-accent;
+}
+
+@mixin page-shell {
+    padding: $page-padding-top $page-padding-inline $page-padding-bottom;
+
+    @media only screen and (min-width: $page-shell-desktop-min) {
+        padding-right: $page-padding-inline-right-desktop;
+    }
+
+    @media only screen and (max-width: $page-shell-desktop-min - 1) {
+        padding-bottom: $page-padding-bottom-mobile;
+    }
+}

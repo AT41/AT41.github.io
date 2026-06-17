@@ -1,0 +1,16 @@
+<nav class="toc-panel" aria-label="On this page">
+    <p class="toc-heading">On this page</p>
+    <ul class="toc-list">
+        <li *ngFor="let section of sections" class="toc-item">
+            <a class="toc-link"
+               [href]="'#' + section.id"
+               [class.active]="activeSection === section.id"
+               (click)="scrollTo(section.id, $event)">
+                <span class="toc-marker">
+                    <mat-icon>{{ section.icon }}</mat-icon>
+                </span>
+                <span class="toc-label">{{ section.label }}</span>
+            </a>
+        </li>
+    </ul>
+</nav>

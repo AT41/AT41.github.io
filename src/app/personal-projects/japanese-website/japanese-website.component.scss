@@ -1,38 +1,10 @@
 @import '../personal-projects-styles.scss';
 
-h3 {
-    font-weight: 500;
-}
-.list-of-tech {
-    h3 {
-        margin: 0;
-        display: inline;
-    }
-    mat-panel-description {
-        align-items: center;
-        img {
-            max-width: 2rem;
-        }
-        div {
-            margin-left: 0.4rem;
-        }
-    }
-    .tech-imgs {
-        display: flex;
-        > div {
-            display: flex;
-        }
-    }
-}
-mat-expansion-panel {
-    margin-bottom: 8px;
-    .content-block {
-        padding: 0.4rem;
-    }
+mat-divider {
+    margin: 1.5rem 0;
+    position: static !important;
 }
 
-@media only screen and (max-width: 850px) {
-    mat-panel-description {
-        display: none;
-    }
+h3 {
+    margin: 1rem 0 0.5rem;
 }

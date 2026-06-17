@@ -1,119 +1,136 @@
-<div class='grid' contents>
-    <mat-card class='main' [contentsSection]="'section-one'" bottomMargin="100">
-        <mat-card-content>
-            <img src="assets/me_full.jpg">
-            <div>
-                <mat-card-title class="title title-long">Anthony Tang <br>Software Developer</mat-card-title>
-                <mat-card-title class="title title-short">Anthony Tang</mat-card-title>
-                <mat-card-subtitle class="subtitle">
-                    Bachelor of Science in Computer Science (3.68 GPA Major) - Spring 2021 <br>
-                    University of Calgary
-                </mat-card-subtitle>
-            </div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class='below-main' [contentsSection]="'section-two'" topMargin="300">
-        <div class="center-container">
-            <mysite-circular-image-holder>
-                <img src="assets/me_square.jpg">
-            </mysite-circular-image-holder>
-        </div>
-        <mat-card-content>
-            Throughout my education growing up in Calgary, I have always loved science and mathematics even from a young age. 
-            After trying my first Computer Science elective at Western High School and winning my first programming competition, 
-            I decided to pursue it as my major at U of C.<br>
-            <br>
-            During my undergraduate I found myself taking tons of Japanese language courses, and loved meeting people who shared the same passions about learning as I did.
-            Volunteering as a Teaching Assistant for lower level classes and conversing with others in Japanese was exciting and, despite language classes taking up more time 
-            to study for than all my other classes combined, I never grew tired of it and I'm proud that I stuck with it through my degree.<br>
-            <br>
-            Here you can find some of my <a href="./personal-projects">personal projects</a> I developed throughout the years.<br>
-        </mat-card-content>
-    </mat-card> 
-
-    <mat-card class="education" [contentsSection]="'section-three'" topMargin="300">
-        <mat-card-title>
-            Education
-        </mat-card-title>
-        <div>
-            <img src="assets/uofc.jpg">
-            <mat-card-content>
-                <div>
-                    <mat-card-title>
-                        University of Calgary
-                    </mat-card-title>
-                    <mat-card-subtitle class="subtitle">
-                        Bachelors of Science<br>
-                        Computer Science + Internship
-                    </mat-card-subtitle>
-                    <div>
-                        Fall 2015 - Spring 2021<br>
-                        3.68 GPA Major<br>
+<div class="page">
+    <div class="content-column">
+        <div class="section-container" id="section-one">
+            <section class="section-card intro">
+                <div class="intro-inner">
+                    <div class="intro-photo">
+                        <img src="assets/me_full.jpg" alt="Anthony Tang">
+                    </div>
+                    <div class="intro-text">
+                        <h1 class="intro-name"><div class="intro-greeting">Hello, I'm</div> Anthony Tang</h1>
+                        <p class="intro-role">Software Developer · Calgary</p>
+                        <p class="intro-tagline">
+                            Full stack developer with 5+ years of experience across cloud infrastructure, agile delivery,
+                            and AI-integrated workflows on AWS, Azure, and the .NET ecosystem.
+                        </p>
+                        <div class="intro-actions">
+                            <a mat-raised-button color="primary" routerLink="/contact">Contact</a>
+                            <a mat-stroked-button href="assets/CPSC Resume.pdf" download="AnthonyTangResume.pdf">Resume</a>
+                            <a mat-stroked-button href="https://www.linkedin.com/in/anthonytang411/" target="_blank" rel="noopener">LinkedIn</a>
+                        </div>
                     </div>
                 </div>
-            </mat-card-content>
+            </section>
         </div>
-    </mat-card>
+        <div class="section-container" id="section-two">
+            <section class="section-card">
+                <h2 class="section-title">
+                    <mat-icon aria-hidden="true">person</mat-icon>
+                    About Me
+                </h2>
+                <p>
+                    I'm a software developer based in Calgary with expertise in cloud infrastructure on AWS and Azure,
+                    building products across C#, .NET, TypeScript, JavaScript, Java, Node.js, SQL, and Hibernate in agile teams.
+                </p>
+                <p>
+                    Growing up in Calgary, I gravitated toward science and mathematics early on. A high school computer science
+                    elective—and winning my first programming competition—set me on the path to studying CS at the University of Calgary.
+                </p>
+                <p>
+                    Outside of engineering work, I spent much of my undergraduate years studying Japanese, volunteering as a TA,
+                    and connecting with others who shared the same passion for learning.
+                </p>
+                <p>
+                    Browse my <a routerLink="/personal-projects">personal projects</a> or reach out via the contact page.
+                </p>
+            </section>
+        </div>
 
-    <mat-card class="work-experience" [contentsSection]="'section-four'" topMargin="300">
-        <mat-card-title>
-            Work Experience
-        </mat-card-title>
-        <mat-card>
-            <mat-card-title>
-                Pixineers Co. Fullstack
-            </mat-card-title>
-            <mat-card-subtitle>
-                16 month internship, making medical-based applications with TypeScript and Angular.<br>
-            </mat-card-subtitle>
-            <mat-card-content>
-                <ul>
-                    <li>
-                        Dry Eye Web Form: A client web app used in Calgary-based clinics to record patient details. Interacted with doctors to fix issues on-site.
-                    </li>
-                    <li>
-                        Face-Touchup: A web app allowing users to manipulate pictures and send them to specific plastic surgery clinics.
-                    </li>
-                    <li>
-                        CORA/PHORA Heart Diagnosis: A web app using Bayesian Neural Networks trained on previous cases to provide a suggestive diagnosis on rare heart conditions.
-                    </li>
-                </ul>
-                <br>
-                Used Angular 7, Command-line Git, NodeJS + Express Backend. Researched and implemented multiple web libraries such as C3.js, Ng-Select, Angular Materials, and more.
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-title>
-                Nexix Inc. Fullstack
-            </mat-card-title>
-            <mat-card-subtitle>
-                2 year full-time as an Angular/Hibernate/Adobe Flex developer. Solo developer for an online pharmaceutical shipping application, while working on other projects.
-            </mat-card-subtitle>
-            <mat-card-content>
-                <ul>
-                    <li>
-                        Developed and maintained all key areas of the application, including designing the MariaDB Instance, building new workflows for the Adobe Flex Client App,
-                        maintenance and development of the Angular Frontend, and an in-house Java Hibernate backend.
-                    </li>
-                    <li>
-                        Implemented various different healthcare-based APIs to allow deferrals of prescriptions to locations not yet licensed, allowing for country-wide shipments.
-                        Led development of the implementation of Surescripts, modifying the entire pharmacist client application to accomodate for new streamlined workflows.
-                    </li>
-                    <li>
-                        Experienced with multitudes of APIs and softwares associated with project lifecycle, such as Crystal Reports, Hylafax, Converge Pay, ZPL Labelary, Google Analytics, Etc.
-                    </li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-    </mat-card>
+        <div class="section-container" id="section-three">
+            <section class="section-card">
+                <h2 class="section-title">
+                    <mat-icon aria-hidden="true">code</mat-icon>
+                    Skills
+                </h2>
+                <div class="skill-chips">
+                    <span class="skill-chip">Angular</span>
+                    <span class="skill-chip">React</span>
+                    <span class="skill-chip">TypeScript</span>
+                    <span class="skill-chip">C# / .NET</span>
+                    <span class="skill-chip">Java</span>
+                    <span class="skill-chip">Node.js</span>
+                    <span class="skill-chip">SQL</span>
+                    <span class="skill-chip">AWS</span>
+                    <span class="skill-chip">Azure</span>
+                    <span class="skill-chip">Azure DevOps</span>
+                    <span class="skill-chip">Hibernate</span>
+                </div>
+            </section>
+        </div>
 
+        <div class="section-container" id="section-four">
+            <section class="section-card">
+                <h2 class="section-title">
+                    <mat-icon aria-hidden="true">school</mat-icon>
+                    Education
+                </h2>
+                <div class="education-row">
+                    <img class="education-logo" src="assets/uofc.jpg" alt="University of Calgary">
+                    <div>
+                        <h3 class="item-title">University of Calgary</h3>
+                        <p class="item-meta">Bachelor of Science with Internship · Computer Science</p>
+                        <p class="item-meta">2015 – 2021 · 3.7 GPA Major</p>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-    <ul class="contents-table table-sticky" contentsTable>
-        <li><a href="#section-one" contentsLink>Home</a></li>
-        <li><a href="#section-two" contentsLink>About Me</a></li>
-        <li><a href="#section-three" contentsLink>Education</a></li>
-        <li><a href="#section-four" contentsLink>Work Experience</a></li>
-    </ul>
-    
+        <div class="section-container" id="section-five">
+            <section class="section-card">
+                <h2 class="section-title">
+                    <mat-icon aria-hidden="true">work</mat-icon>
+                    Work Experience
+                </h2>
+
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="item-title">Software Developer</h3>
+                        <p class="item-meta">Detechtion Technologies · Calgary</p>
+                        <p class="item-meta">Sep 2023 – Present</p>
+                    </div>
+                    <ul>
+                        <li>Delivered features across React, .NET (C#), SQL Server, and Azure DevOps in an agile team with active PR review and documentation practices.</li>
+                        <li>Led migration from Azure to AWS EC2 and S3 to support data sovereignty requirements for international oil &amp; gas software sales.</li>
+                        <li>Moved secrets into Azure Key Vault and improved API security posture as part of SOC 2 certification efforts.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="item-title">Software Developer</h3>
+                        <p class="item-meta">Nexix Inc. · Calgary</p>
+                        <p class="item-meta">Apr 2021 – Apr 2023</p>
+                    </div>
+                    <ul>
+                        <li>Led full-stack development of a pharmaceutical ordering platform using Angular, Java/Hibernate, MariaDB, and Adobe Flex.</li>
+                        <li>Owned a 20+ page acceptance criteria standard adopted across major prescription dispensaries for doctor-to-pharmacy transfers.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="item-title">Software Developer (Internship)</h3>
+                        <p class="item-meta">Pixineers Co. · Calgary</p>
+                        <p class="item-meta">Jan 2018 – Apr 2021</p>
+                    </div>
+                    <ul>
+                        <li>Built healthcare web applications on Angular and Node.js for clinical and diagnostic workflows.</li>
+                        <li>Implemented features and resolved frontend issues using Angular Material, Bootstrap, Ng-Select, C3.js, and related libraries.</li>
+                    </ul>
+                </article>
+            </section>
+        </div>
+    </div>
 </div>
+<mysite-table-of-contents [sections]="tocSections"></mysite-table-of-contents>
 <mysite-footer></mysite-footer>

@@ -1,0 +1,176 @@
+@import '../../styles/tokens';
+
+:host {
+    display: block;
+    z-index: 2;
+}
+
+.toc-panel {
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: 20px;
+    padding: 1.5rem 1.25rem 1.25rem;
+    box-shadow: $shadow-md;
+}
+
+.toc-heading {
+    margin: 0 0 1.25rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-muted;
+}
+
+.toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 16px;
+        bottom: 16px;
+        width: 2px;
+        background-color: $color-border;
+    }
+}
+
+.toc-item {
+    position: relative;
+}
+
+.toc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.625rem 0;
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover:not(.active) {
+        .toc-label {
+            color: $color-text;
+        }
+
+        .toc-marker {
+            border-color: rgba($color-accent, 0.5);
+        }
+
+        .toc-marker mat-icon {
+            color: $color-text;
+        }
+    }
+}
+
+.toc-marker {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid $color-border;
+    background-color: $color-surface;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
+    mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        color: $color-muted;
+        transition: color 0.15s ease;
+    }
+}
+
+.toc-label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $color-muted;
+    line-height: 1.2;
+    transition: color 0.15s ease;
+}
+
+.toc-link.active {
+    .toc-marker {
+        background-color: $color-accent;
+        border-color: $color-accent;
+        box-shadow: 0 0 0 4px rgba($color-accent, 0.15);
+    }
+
+    .toc-marker mat-icon {
+        color: #ffffff;
+    }
+
+    .toc-label {
+        color: $color-accent;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    :host {
+        position: fixed;
+        top: calc(#{$header-height} + 2rem);
+        right: max(2vw, #{$outer-margin});
+        width: 240px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    :host {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .toc-panel {
+        border-radius: 20px 20px 0 0;
+        border-bottom: none;
+        padding: 0.75rem $outer-margin 0.875rem;
+        backdrop-filter: blur(8px);
+        background-color: rgba($color-surface, 0.95);
+    }
+
+    .toc-heading {
+        display: none;
+    }
+
+    .toc-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.25rem;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    .toc-item {
+        flex: 1;
+    }
+
+    .toc-link {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.25rem 0;
+    }
+
+    .toc-label {
+        font-size: 0.65rem;
+        text-align: center;
+    }
+
+    .toc-link.active .toc-marker {
+        box-shadow: none;
+    }
+}

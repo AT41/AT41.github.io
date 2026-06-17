@@ -15,7 +15,6 @@ import { DigitalPhotoframeComponent } from './personal-projects/digital-photofra
 import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/japanese-website.component';
 import { PiEmulatorComponent } from './personal-projects/pi-emulator/pi-emulator.component';
 import { LinkedInRedirect } from './guards/LinkedInRedirect';
-import { ContentsModule } from 'angular-contents';
 import { EinkBusinesscardComponent } from './personal-projects/eink-businesscard/eink-businesscard.component';
 
 @NgModule({
@@ -36,8 +35,7 @@ import { EinkBusinesscardComponent } from './personal-projects/eink-businesscard
     BrowserModule,
     MySiteRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
-    ContentsModule
+    SharedModule
   ],
   providers: [LinkedInRedirect],
   bootstrap: [MySiteComponent]

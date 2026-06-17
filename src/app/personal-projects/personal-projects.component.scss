@@ -1,8 +1,76 @@
-@import '../../styles.scss';
+@import '../../styles/section-layout';
 
-mat-card {
-    margin: $outer-margin;
-    .title {
-        width: 100%;
+.page {
+    @include page-shell;
+    position: relative;
+}
+
+.content-column {
+    @include content-column;
+}
+
+.project-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid $color-border;
+    border-radius: 50%;
+    background-color: $color-surface;
+    color: $color-text;
+    cursor: pointer;
+    box-shadow: $shadow-sm;
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+
+    mat-icon {
+        font-size: 1.75rem;
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    &:hover:not(:disabled) {
+        color: $color-accent;
+        border-color: rgba($color-accent, 0.5);
+        background-color: rgba($color-accent, 0.08);
+    }
+
+    &:disabled {
+        opacity: 0.35;
+        cursor: default;
+    }
+
+    // Calculate the margin of the slides
+    $margin-of-slides: calc((100vw - #{$page-padding-inline} - #{$page-padding-inline}) * (1 - #{$content-max-width-factor}) / 2);
+
+    @media only screen and (max-width: $page-shell-desktop-min) {
+        $margin-of-slides: calc((100vw - #{$page-padding-inline} - #{$page-padding-inline-right-desktop}) * (1 - #{$content-max-width-factor}) / 2);
+    }
+
+    &--prev {
+        left: calc(#{$margin-of-slides} + #{$page-padding-inline});
+        transform: translate(-50%, -50%);
+
+        @media only screen and (min-width: $page-shell-desktop-min) {
+            left: calc(#{$margin-of-slides} + #{$page-padding-inline} - 2rem);
+        }
+    }
+
+    &--next {
+        right: calc(#{$margin-of-slides} + #{$page-padding-inline});
+        transform: translate(50%, -50%);
+
+        @media only screen and (min-width: $page-shell-desktop-min) {
+            right: calc(#{$margin-of-slides} + #{$page-padding-inline-right-desktop} - 2rem);
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        width: 2.25rem;
+        height: 2.25rem;
     }
 }
