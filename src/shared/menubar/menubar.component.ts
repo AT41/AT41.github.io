@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { PERSONAL_PROJECTS, PersonalProject } from 'src/app/personal-projects/personal-projects.config';
 
 @Component({
   selector: 'mysite-menubar',
   templateUrl: './menubar.component.html',
   styleUrls: ['./menubar.component.scss']
 })
-export class MenubarComponent implements OnInit {
+export class MenubarComponent {
+  personalProjects: PersonalProject[] = PERSONAL_PROJECTS;
+  projectsMenuOpen = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  isPersonalProjectsActive(): boolean {
+    return this.router.url.startsWith('/personal-projects');
   }
 
+  openProjectsMenu(): void {
+    this.projectsMenuOpen = true;
+  }
+
+  closeProjectsMenu(): void {
+    this.projectsMenuOpen = false;
+  }
 }

@@ -4,9 +4,21 @@ mat-divider {
     margin: 3rem 0;
     position: static !important;
 }
-.section-title {
-    margin: 0;
+
+h1 {
+    margin: 1rem 0;
+    font-weight: 500;
 }
-mat-expansion-panel {
-    margin-bottom: 8px;
+
+code {
+    line-height: 0rem;
+    background-color: $color-surface;
+    color: $color-text;
+    border: 1px solid $color-border;
+}
+
+.footnote {
+    color: $color-muted;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
 }

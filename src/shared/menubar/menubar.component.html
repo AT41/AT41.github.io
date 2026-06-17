@@ -3,7 +3,26 @@
     <span class="spacer"></span>
     <nav class="nav-links nav-links--desktop" aria-label="Main navigation">
         <a mat-button routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a mat-button routerLink="/personal-projects" routerLinkActive="active">Personal Projects</a>
+        <div
+            class="nav-dropdown"
+            (mouseenter)="openProjectsMenu()"
+            (mouseleave)="closeProjectsMenu()">
+            <a
+                mat-button
+                routerLink="/personal-projects"
+                [class.active]="isPersonalProjectsActive()">
+                Personal Projects
+            </a>
+            <div class="nav-dropdown-menu" *ngIf="projectsMenuOpen">
+                <a
+                    *ngFor="let project of personalProjects"
+                    class="nav-dropdown-item"
+                    [routerLink]="['/personal-projects', project.slug]"
+                    routerLinkActive="active">
+                    {{ project.title }}
+                </a>
+            </div>
+        </div>
         <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
     </nav>
     <button
@@ -15,7 +34,15 @@
     </button>
     <mat-menu #mobileMenu="matMenu" panelClass="mobile-nav-menu" xPosition="before">
         <a mat-menu-item routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a mat-menu-item routerLink="/personal-projects" routerLinkActive="active">Personal Projects</a>
+        <a mat-menu-item routerLink="/personal-projects" [class.active]="isPersonalProjectsActive()">Personal Projects</a>
+        <a
+            mat-menu-item
+            class="mobile-project-link"
+            *ngFor="let project of personalProjects"
+            [routerLink]="['/personal-projects', project.slug]"
+            routerLinkActive="active">
+            {{ project.title }}
+        </a>
         <a mat-menu-item routerLink="/contact" routerLinkActive="active">Contact</a>
     </mat-menu>
 </mat-toolbar>

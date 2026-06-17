@@ -1,22 +1,11 @@
-@import '../../styles/tokens';
+@import '../../styles/section-layout';
 
 .page {
-    padding: 2rem $outer-margin 4rem;
-
-    @media only screen and (min-width: 901px) {
-        padding-right: 17rem;
-    }
-
-    @media only screen and (max-width: 900px) {
-        padding-bottom: 5rem;
-    }
+    @include page-shell;
 }
 
 .content-column {
-    max-width: $content-max-width;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    @include content-column;
 }
 
 #section-one {
@@ -24,48 +13,23 @@
 }
 
 .section-container {
-    padding-top: 6rem;
-    margin-bottom: -5rem;
+    @include section-container;
 }
 
 .section-card {
-    @include card-surface;
-    padding: 2rem;
-
-    @media only screen and (max-width: 600px) {
-        padding: 1.25rem;
-    }
+    @include section-card;
 }
 
 .section-title {
-    @include section-heading;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    mat-icon {
-        color: $color-accent;
-        font-size: 1.75rem;
-        width: 1.75rem;
-        height: 1.75rem;
-        line-height: 1.75rem;
-        flex-shrink: 0;
-    }
+    @include section-title;
 }
 
 .intro {
-    padding: 2.5rem 2rem;
+    @include project-intro;
 }
 
 .intro-inner {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-
-    @media only screen and (max-width: 700px) {
-        flex-direction: column;
-        text-align: center;
-    }
+    @include project-intro-inner;
 }
 
 .intro-photo {

@@ -1,17 +1,19 @@
-<div class='body'>
-    <div class='title'>
-        Japanese Flashcard Website
-    </div>
-    <h3>Closing Remarks</h3>
-    <div style="margin-bottom: 2rem;">
-        I decided to sunset this project around April 2020. I kept the database up for my friend and I to study with, but after the pandemic cancelled a student exchange I was planning to go on, I made the decision to stop this project to fully focus on my career. 
-        It was a good experience porting my database onto Firebase, and I learnt a lot through developing this project, but without the possibility of experiencing Japan after 4 years of studying the language I've moved on.
-    </div>
-    <div>
+<div class="section-container" id="section-main">
+    <section class="section-card project-intro">
+        <div class="project-intro-inner">
+            <div class="project-intro-text">
+                <h1 class="project-intro-name">Japanese Flashcard Website</h1>
+                <p class="project-intro-tagline">
+                    My Japanese Flashcard site is designed to help learners quickly choose pre-existing questions and test themselves.
+                    Although users can test anonymously, they can sign in through their Gmail account to keep track of which questions they get right and wrong.
+                    Currently, users can choose to test their vocabulary over different Japanese levels, or the basic Japanese alphabet.
+                </p>
+            </div>
+        </div>
+        <h3>Closing Remarks</h3>
         <p>
-            My Japanese Flashcard site is designed to help learners quickly choose pre-existing questions and test themselves.
-            Although users can test anonymously, they can sign in through their Gmail account to keep track of which questions they get right and wrong.
-            Currently, users can choose to test their vocabulary over different Japanese levels, or the basic Japanese alphabet.
+            I decided to sunset this project around April 2020. I kept the database up for my friend and I to study with, but after the pandemic cancelled a student exchange I was planning to go on, I made the decision to stop this project to fully focus on my career. 
+            It was a good experience porting my database onto Firebase, and I learnt a lot through developing this project, but without the possibility of experiencing Japan after 4 years of studying the language I've moved on.
         </p>
         <p>
             This is my second iteration of this project, the first being a php application and hosted locally on an old desktop. From my
@@ -22,112 +24,102 @@
             Google Cloud API was the main reason why I made the move to scrap my original locally hosted backend in favor of Google Cloud, 
             and I started the task of rebuilding my backend from scratch.
         </p>
-        <mat-expansion-panel class='no-padding-bottom list-of-tech'>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Technologies Used
-            </mat-panel-title>
-            <mat-panel-description>
-              A list of the technologies, frameworks, and libraries that were used in development
-              <div class='tech-imgs'>
-                <div>
-                    <img src='assets/jwebsite/gcloud.png'>
-                    <img src='assets/jwebsite/mysql-workbench.png'>
-                    <img src='assets/firebase.webp'>
-                  </div>
-                  <div>
-                    <img src='assets/jwebsite/vscode.png'>
-                    <img src='assets/angular.png'>
-                    <img src='assets/jwebsite/ts.png'>
-                  </div>
-              </div>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-            <mat-divider></mat-divider>
-            <div class='content-block'>
-                <h3>
-                    Frontend: 
-                </h3>
-                <span>
-                    TypeScript + Angular
-                </span>
-            </div>
-            <mat-divider></mat-divider>
-            <div class='content-block'>
-                <h3>
-                    Backend: 
-                </h3>
-                <span>
-                    Google Cloud Run, NodeJS
-                </span>
-            </div>
-            <mat-divider></mat-divider>
-            <div class='content-block'>
-                <h3>
-                    Database: 
-                </h3>
-                <span>
-                    Google Cloud MySQL
-                </span>
-            </div>
-            <mat-divider></mat-divider>
-            <div class='content-block'>
-                <h3>
-                    Words and Definitions: 
-                </h3>
-                <span>
-                    Jisho.org
-                </span>
-            </div>
-            <mat-divider></mat-divider>
-        </mat-expansion-panel>
-        
-        <mat-expansion-panel class='no-padding-bottom'>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Future Features
-                </mat-panel-title>
-                <mat-panel-description>
-                    A list of features that I plan to implement
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-divider></mat-divider>
-            <div class='content-block'>
-                <h3>Statistics</h3>
-                <div>
-                    Currently user statistics on which questions they get correct and incorrect are saved, and associated with their Gmail usernames.
-                    I plan on implementing a page allowing users to see these stats, and options to create tests consisting of questions the user frequently
-                    gets incorrect.
-                </div>
-            </div>
-            <mat-divider></mat-divider>
-            <div class='content-block'>
-                <h3>Google Vision</h3>
-                <div>
-                    Vocabulary sheets are commonplace when learning Japanese, and users aren't always able to find sites that offer tests for their specific
-                    sets of words. Letting users upload images of their sheets, using Google's Vision API to extract Japanese words, and matching the words that
-                    were caught with the pre-existing terms in my database lets users quiz themselves immediately.
-                </div>
-            </div>
-            <mat-divider></mat-divider>
-            <div class='content-block'>
-                <h3>Conjugation Tables</h3>
-                <div>
-                    One of the reasons why I love Japanese from a programming perspective is that conjugations are completely predictable. Although it's predictable, 
-                    a lot of beginners struggle with understanding and memorizing conjugation rules, which is why I want to make
-                    conjugation tables for a myriad of different conjugations.
-                </div>
-            </div>
-        </mat-expansion-panel>
-    </div>
+    </section>
 </div>
 
-<div class='footer'>
-    <p>Links:</p>
-    <a href='https://github.com/AT41/JWebsite'>
-        <button mat-button>Frontend<img class='github' src='assets/github.png'></button>
-    </a>
-    <a href='https://github.com/AT41/JWebsite-backend'>
-        <button mat-button>Backend<img class='github' src='assets/github.png'></button>
-    </a>
+<div class="section-container" id="section-technologies">
+    <section class="section-card">
+        <h2 class="section-title">
+            <mat-icon aria-hidden="true">layers</mat-icon>
+            Technologies Used
+        </h2>
+        <p class="section-subtitle">A list of the technologies, frameworks, and libraries that were used in development</p>
+        <div class="tech-imgs">
+            <div>
+                <img src="assets/jwebsite/gcloud.png" alt="Google Cloud">
+                <img src="assets/jwebsite/mysql-workbench.png" alt="MySQL Workbench">
+                <img src="assets/firebase.webp" alt="Firebase">
+            </div>
+            <div>
+                <img src="assets/jwebsite/vscode.png" alt="VS Code">
+                <img src="assets/angular.png" alt="Angular">
+                <img src="assets/jwebsite/ts.png" alt="TypeScript">
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Frontend:</h3>
+            <span>TypeScript + Angular</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Backend:</h3>
+            <span>Google Cloud Run, NodeJS</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Database:</h3>
+            <span>Google Cloud MySQL</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Words and Definitions:</h3>
+            <span>Jisho.org</span>
+        </div>
+    </section>
+</div>
+
+<div class="section-container" id="section-future-features">
+    <section class="section-card">
+        <h2 class="section-title">
+            <mat-icon aria-hidden="true">lightbulb</mat-icon>
+            Future Features
+        </h2>
+        <p class="section-subtitle">A list of features that I plan to implement</p>
+        <div class="content-block">
+            <h3>Statistics</h3>
+            <p>
+                Currently user statistics on which questions they get correct and incorrect are saved, and associated with their Gmail usernames.
+                I plan on implementing a page allowing users to see these stats, and options to create tests consisting of questions the user frequently
+                gets incorrect.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Google Vision</h3>
+            <p>
+                Vocabulary sheets are commonplace when learning Japanese, and users aren't always able to find sites that offer tests for their specific
+                sets of words. Letting users upload images of their sheets, using Google's Vision API to extract Japanese words, and matching the words that
+                were caught with the pre-existing terms in my database lets users quiz themselves immediately.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Conjugation Tables</h3>
+            <p>
+                One of the reasons why I love Japanese from a programming perspective is that conjugations are completely predictable. Although it's predictable, 
+                a lot of beginners struggle with understanding and memorizing conjugation rules, which is why I want to make
+                conjugation tables for a myriad of different conjugations.
+            </p>
+        </div>
+    </section>
+</div>
+
+<div class="section-container">
+    <section class="section-card">
+        <h2 class="section-title">
+            <mat-icon aria-hidden="true">link</mat-icon>
+            Links
+        </h2>
+        <div class="project-links">
+            <a mat-stroked-button href="https://github.com/AT41/JWebsite" target="_blank" rel="noopener">
+                Frontend
+                <img class="github" src="assets/github.png" alt="">
+            </a>
+            <a mat-stroked-button href="https://github.com/AT41/JWebsite-backend" target="_blank" rel="noopener">
+                Backend
+                <img class="github" src="assets/github.png" alt="">
+            </a>
+        </div>
+    </section>
 </div>

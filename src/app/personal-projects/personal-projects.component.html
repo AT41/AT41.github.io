@@ -1,29 +1,22 @@
-<mat-card>
-    <mat-tab-group>
-        <mat-tab label="E-Ink Business Card">
-            <mysite-eink-businesscard>
-                
-            </mysite-eink-businesscard>
-        </mat-tab>
-        <mat-tab label="Digital Photo Frame">
-            <mysite-digital-photoframe>
-                
-            </mysite-digital-photoframe>
-        </mat-tab>
-        <mat-tab label="Pi Emulator">
-            <mysite-pi-emulator>
-                
-            </mysite-pi-emulator>
-        </mat-tab>
-        <mat-tab label="Japanese Flashcard Site">
-            <mysite-japanese-website>
-                
-            </mysite-japanese-website>
-        </mat-tab>
-        <mat-tab label="Password Strength Measurer">
-            <mysite-password-strength-project>
-                
-            </mysite-password-strength-project>
-        </mat-tab>
-    </mat-tab-group>
-</mat-card>
+<div class="page">
+    <button
+        class="project-arrow project-arrow--prev"
+        type="button"
+        [disabled]="!hasPrev"
+        (click)="navigatePrev()"
+        aria-label="Previous project">
+        <mat-icon>chevron_left</mat-icon>
+    </button>
+    <div class="content-column">
+        <router-outlet></router-outlet>
+    </div>
+    <button
+        class="project-arrow project-arrow--next"
+        type="button"
+        [disabled]="!hasNext"
+        (click)="navigateNext()"
+        aria-label="Next project">
+        <mat-icon>chevron_right</mat-icon>
+    </button>
+</div>
+<mysite-table-of-contents [sections]="tocSections"></mysite-table-of-contents>
