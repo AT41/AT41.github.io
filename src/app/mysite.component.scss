@@ -1,37 +1,10 @@
-@import "../styles.scss";
+@import "../styles/tokens";
 
-$background-color-r: 255;
-$background-color-g: 242;
-$background-color-b: 204;
-
-.background {   
-    background-image: url('../assets/usj.jpg');
-    background-size: max(120%, 2000px), 0;
-    filter: blur(8px);
-    position: absolute;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin-top: -$header-height;
-    padding-top: $header-height;
-}
-
-
-.gradient {
-    height: 4rem;
-    margin-top: -8rem;
-    width: 100%;
-    position: absolute;
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgb($background-color-r, $background-color-g, $background-color-b));
-    bottom: 0;
-}
-
-.main {
-    background-color: rgba($background-color-r, $background-color-g, $background-color-b, 0.2);
+.page-shell {
     min-height: 100%;
+    background: linear-gradient(180deg, $color-bg 0%, $color-bg-gradient-end 100%);
 }
 
-router-outlet {
-    display: block;
-    height: $header-height;
+.page-content {
+    padding-top: $header-height;
 }

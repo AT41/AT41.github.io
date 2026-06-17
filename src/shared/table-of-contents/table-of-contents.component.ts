@@ -10,6 +10,8 @@ import {
 export interface TocSection {
   id: string;
   label: string;
+  icon: string;
+  absolutePosition?: number;
 }
 
 @Component({
@@ -22,7 +24,7 @@ export class TableOfContentsComponent implements AfterViewInit, OnDestroy {
 
   activeSection: string;
 
-  private observer: IntersectionObserver; // Observer to track the visibility of the sections
+  private observer: IntersectionObserver;
   private sectionRatios = new Map<string, number>();
 
   constructor(
@@ -59,15 +61,23 @@ export class TableOfContentsComponent implements AfterViewInit, OnDestroy {
   }
 
   scrollTo(id: string, event: Event): void {
+    // Prevent the link from being followed.
     event.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (this.sections.find((section) => section.id === id)?.absolutePosition !== undefined) {
+      window.scrollTo({
+        top: this.sections.find((section) => section.id === id)?.absolutePosition,
+        behavior: 'smooth',
+      });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   private onIntersect(entries: IntersectionObserverEntry[]): void {
     entries.forEach((entry) => {
       this.sectionRatios.set(entry.target.id, entry.intersectionRatio);
     });
-    // Find the section with the highest intersection ratio. This is the section that is currently visible.
+
     let bestId = this.activeSection;
     let bestRatio = 0;
 

@@ -1,18 +1,39 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-$header-height: 2.4rem;
-$outer-margin: 4vw;
+@import './styles/tokens';
+@import './styles/material-theme';
 
-// Angular Materials
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: $font-sans;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $color-text;
+    background-color: $color-bg;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: $color-accent;
+    text-decoration: none;
+
+    &:hover {
+        color: $color-accent-hover;
+    }
+}
+
 mat-panel-title {
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: $font-sans;
     font-size: 14px;
-    font-weight: 500
+    font-weight: 500;
 }
 
 mat-expansion-panel.no-padding-bottom > .mat-expansion-panel-content > div {
     padding-bottom: 0;
 }
+
 mat-expansion-panel {
     mat-expansion-panel-header > span {
         align-items: center;
@@ -20,23 +41,25 @@ mat-expansion-panel {
 }
 
 div.global_blog {
-    margin-left: 10rem;
-    margin-right: 10rem;
-    font-size: 1.4em;
-    line-height: 1.6em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $content-max-width;
+    font-size: 1.05rem;
+    line-height: 1.7;
+
     img {
         max-width: 100%;
         margin: auto;
         display: block;
+        border-radius: $radius-sm;
     }
+
     @media only screen and (max-width: 850px) {
-        margin: 0;
+        margin-left: $outer-margin;
+        margin-right: $outer-margin;
     }
+
     p {
-        margin: 2rem 0;
+        margin: 1.5rem 0;
     }
 }
-
-
-
-

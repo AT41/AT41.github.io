@@ -1,0 +1,45 @@
+---
+description: Preserve explanatory comments in code that is not being changed
+alwaysApply: true
+---
+
+# Preserve Comments in Unchanged Code
+
+When editing files, do not remove or rewrite explanatory comments that belong to code you are not intentionally changing.
+
+## Requirements
+
+- Leave existing comments intact in regions of the file that are outside the scope of the requested change.
+- Do not "clean up" or strip comments as part of unrelated refactors, formatting passes, or copy-paste replacements.
+- If a large block must be replaced, preserve comments that still apply to the surrounding or replacement logic.
+- Only remove or update a comment when you are deliberately changing the behavior, API, or intent that comment describes.
+
+## When editing
+
+- Prefer minimal, targeted diffs — change only the lines needed for the task.
+- When using search-and-replace or rewriting a section, re-include nearby comments unless they are obsolete.
+- If a comment becomes inaccurate because of your change, update it; do not delete it without reason.
+
+## Examples
+
+```typescript
+// ❌ BAD — removed a comment while fixing unrelated logic below
+const timeout = 5000;
+
+// ✅ GOOD — comment kept; only the changed line was edited
+// Retry after transient network failures
+const timeout = 5000;
+```
+
+```typescript
+// ❌ BAD — whole function rewritten and explanatory comments dropped
+function parseConfig(raw: string) {
+  return JSON.parse(raw);
+}
+
+// ✅ GOOD — behavior updated; still-useful comment retained or revised
+// Accepts JSON strings from env vars and legacy config files
+function parseConfig(raw: string) {
+  return JSON.parse(raw.trim());
+}
+```

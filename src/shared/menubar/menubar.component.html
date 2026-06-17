@@ -1,5 +1,21 @@
-<mat-toolbar>
-    <a routerLink="/home" routerLinkActive="active"><button mat-button><mat-icon>home</mat-icon></button></a>
-    <a routerLink="/personal-projects" routerLinkActive="active"><button mat-button>Personal Projects</button></a>
-    <a routerLink="/contact" routerLinkActive="active"><button mat-button>My Contact</button></a>
+<mat-toolbar class="site-toolbar">
+    <a class="brand" routerLink="/home">Anthony Tang</a>
+    <span class="spacer"></span>
+    <nav class="nav-links nav-links--desktop" aria-label="Main navigation">
+        <a mat-button routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a mat-button routerLink="/personal-projects" routerLinkActive="active">Personal Projects</a>
+        <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+    </nav>
+    <button
+        class="menu-toggle menu-toggle--mobile"
+        mat-icon-button
+        [matMenuTriggerFor]="mobileMenu"
+        aria-label="Open navigation menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #mobileMenu="matMenu" panelClass="mobile-nav-menu" xPosition="before">
+        <a mat-menu-item routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a mat-menu-item routerLink="/personal-projects" routerLinkActive="active">Personal Projects</a>
+        <a mat-menu-item routerLink="/contact" routerLinkActive="active">Contact</a>
+    </mat-menu>
 </mat-toolbar>

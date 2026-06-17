@@ -1,3 +1,5 @@
+@import '../../styles/tokens';
+
 .title {
     margin: 2rem;
     font-weight: 1000;
@@ -46,7 +48,8 @@ mat-expansion-panel.list-of-tech {
     .requirements-grid {
         margin-bottom: 24px; 
         display: grid;
-        background-color: rgb(250,250,250);
+        background-color: $color-surface;
+        border: 1px solid $color-border;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
         mat-card {

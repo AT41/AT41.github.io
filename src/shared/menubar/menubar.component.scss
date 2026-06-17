@@ -1,23 +1,95 @@
-@import "../../styles.scss";
-mat-toolbar {
+@import "../../styles/tokens";
+
+.site-toolbar {
     height: $header-height;
-    background-color: rgba(237, 237, 237, 1);
-    flex-basis: auto;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    background-color: $color-surface-elevated;
+    border-bottom: 1px solid $color-border;
+    box-shadow: $shadow-sm;
+    padding: 0 $outer-margin;
 }
 
-a {
-    display: flex;
+.brand {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $color-text;
     text-decoration: none;
-    color: black;
+
+    &:hover {
+        color: $color-accent;
+    }
 }
 
-mat-icon {
-    align-self: center;
+.spacer {
+    flex: 1;
 }
 
-:host ::ng-deep mat-toolbar {
-    padding: 0;
+.nav-links--desktop {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    a {
+        color: $color-muted;
+        text-decoration: none;
+
+        &.active {
+            color: $color-accent;
+            font-weight: 500;
+        }
+
+        &:hover {
+            color: $color-accent;
+        }
+    }
+}
+
+.menu-toggle--mobile {
+    display: none !important;
+    color: $color-text;
+}
+
+:host ::ng-deep .site-toolbar {
+    padding: 0 $outer-margin;
+}
+
+:host ::ng-deep .mobile-nav-menu.mat-menu-panel {
+    min-width: 12rem;
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    box-shadow: $shadow-md;
+
+    .mat-menu-content {
+        padding: 0.25rem 0;
+    }
+
+    .mat-menu-item {
+        color: $color-muted;
+        font-size: 0.95rem;
+
+        &.active {
+            color: $color-accent;
+            font-weight: 500;
+        }
+
+        &:hover:not([disabled]) {
+            background-color: rgba($color-accent, 0.08);
+            color: $color-accent;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-links--desktop {
+        display: none !important;
+    }
+
+    .menu-toggle--mobile {
+        display: inline-flex !important;
+    }
 }
