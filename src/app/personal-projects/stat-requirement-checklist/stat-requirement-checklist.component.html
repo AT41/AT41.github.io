@@ -1,0 +1,184 @@
+<div class="section-container" id="section-main">
+    <section class="section-card project-intro">
+        <div class="project-intro-inner">
+            <div class="project-intro-text">
+                <h1 class="project-intro-name">OpenRCT2 Stat Requirement Checklist</h1>
+                <p class="project-intro-tagline">
+                    An OpenRCT2 plugin that shows the stat requirements for the ride I'm currently building —
+                    so players can stay in the game instead of tabbing out to look things up.
+                </p>
+            </div>
+        </div>
+        <div class="project-intro-photo project-intro-photo--featured">
+            <img src="assets/stat-requirement-checklist/pluginWindow.png"
+                 alt="StatRequirementChecklist plugin window in OpenRCT2">
+        </div>
+    </section>
+</div>
+
+<div class="section-container" id="section-background">
+    <section class="section-card">
+        <h2 class="section-title">
+            <mat-icon aria-hidden="true">info</mat-icon>
+            Background
+        </h2>
+
+        <h3 class="subsection-heading">Why I built this</h3>
+        <p>
+            I'm a casual OpenRCT2 player, not someone who has every ride's requirements memorized. When I build
+            in a scenario, I only care about the rides I can actually construct, but I kept running into the
+            same problem: I couldn't find a plugin that showed requirements scoped to what's available in my
+            current park.
+        </p>
+        <p>
+            The closest thing I found was jacknull1991's Ride Requirement Plugin, which lists requirements for
+            every possible ride in the game. That's useful as a reference, but I only want to see what rides are available to me in the current scenario, and I had to open this dialog every time I started constructing a ride.
+        </p>
+        <p>
+            I wanted something that followed me — open the ride I'm editing, see its requirements immediately,
+            and move on.
+        </p>
+
+        <h3 class="subsection-heading">What it does</h3>
+        <p>
+            The plugin opens a small window showing minimum and maximum stat requirements for whichever ride
+            I'm currently creating, editing, or previewing, and it does it automatically through listening to game events, specifically when a user tries to modify an existing ride. It can track the ride under construction automatically,
+            and I'm working on a checklist that marks off requirements as they're met. I published it on the
+            OpenRCT2 plugin directory so other players who hit the same annoyance don't have to build their own.
+        </p>
+    </section>
+</div>
+
+<div class="section-container" id="section-plugin-options">
+    <section class="section-card">
+        <h2 class="section-title">
+            <mat-icon aria-hidden="true">tune</mat-icon>
+            Plugin Options
+        </h2>
+        <p class="section-subtitle">Settings I added so the window stays helpful without getting in the way</p>
+        <div class="content-block">
+            <h3>Open When Creating or Editing Ride</h3>
+            <p>
+                I use this as the default. When I start a new ride or open an existing one for editing, the
+                requirements window appears on its own. If I close it, it stays closed for that ride until I
+                switch to a different one — I didn't want it nagging me once I'd already seen the stats.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Open When Selecting Ride Preview</h3>
+            <p>
+                Handy when I'm browsing saved track designs and want to know whether a layout will pass stat
+                checks before I commit to building it.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Change Ride Automatically</h3>
+            <p>
+                This is the option I cared about most. While a ride is under construction, the window follows
+                whichever ride I'm working on instead of making me re-open or re-search every time I switch focus.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Close When Deleting Ride</h3>
+            <p>
+                Small quality-of-life detail — if I demolish the ride the window was tracking, the window closes
+                instead of showing stale requirements for a ride that no longer exists.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Show Requirement Checklist</h3>
+            <p>
+                An experimental checklist that ticks off requirements as they're fulfilled. Still a work in progress,
+                but it's the direction I want to take this — less "here are the numbers" and more "here's what
+                you still need to hit."
+            </p>
+        </div>
+    </section>
+</div>
+
+<div class="section-container" id="section-technologies">
+    <section class="section-card">
+        <h2 class="section-title">
+            <mat-icon aria-hidden="true">layers</mat-icon>
+            Technologies Used
+        </h2>
+        <p class="section-subtitle">What I used to build and ship the plugin</p>
+        <div class="content-block">
+            <h3>Language &amp; Build</h3>
+            <span>TypeScript, Rollup, Prettier</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Platform</h3>
+            <span>OpenRCT2 Plugin API</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Data sources</h3>
+            <p>
+                Ride requirement logic and a ride type enum map — with permission from Crazycolbster and Smitty for
+                the enum data. I started from Basssiiie's OpenRCT2 TypeScript template rather than wiring up the
+                build pipeline from scratch.
+            </p>
+        </div>
+    </section>
+</div>
+
+<div class="section-container" id="section-future-features">
+    <section class="section-card">
+        <h2 class="section-title">
+            <mat-icon aria-hidden="true">lightbulb</mat-icon>
+            What I'd like to add next
+        </h2>
+        <p class="section-subtitle">Features I'm still thinking about for future releases</p>
+        <div class="content-block">
+            <h3>Live requirement checklist</h3>
+            <p>
+                Right now the checklist is rough. I'd like it to update in real time as I test the ride — green
+                checkmarks for stats that pass, clear indicators for what's still missing.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content-block">
+            <h3>Excitement / intensity / nausea breakdown</h3>
+            <p>
+                Meeting stat requirements often comes down to balancing excitement, intensity, and nausea. A
+                breakdown showing how each stat contributes would make it easier to diagnose why a ride is failing
+                without guesswork.
+            </p>
+        </div>
+    </section>
+</div>
+
+<div class="section-container">
+    <section class="section-card">
+        <h2 class="section-title">
+            <mat-icon aria-hidden="true">link</mat-icon>
+            Links
+        </h2>
+        <div class="project-links">
+            <a mat-stroked-button
+               href="https://github.com/AT41/StatRequirementChecklist"
+               target="_blank" rel="noopener">
+                Source Code
+                <img class="github" src="assets/github.png" alt="">
+            </a>
+            <a mat-stroked-button
+               href="https://openrct2plugins.org/plugin/R_kgDOJ2MSkg/StatRequirementChecklist"
+               target="_blank" rel="noopener">
+                OpenRCT2 Plugins Directory
+                <mat-icon>open_in_new</mat-icon>
+            </a>
+            <a mat-stroked-button
+               href="https://github.com/AT41/StatRequirementChecklist/releases/latest"
+               target="_blank" rel="noopener">
+                Latest Release
+                <mat-icon>download</mat-icon>
+            </a>
+        </div>
+    </section>
+</div>

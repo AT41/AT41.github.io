@@ -1,0 +1,39 @@
+@import '../../../styles/tokens';
+@import '../personal-projects-styles.scss';
+
+mat-divider {
+    margin: 1.5rem 0;
+    position: static !important;
+}
+
+.project-intro-photo--featured {
+    width: 100%;
+    max-width: 42rem;
+    margin: 2rem auto 0;
+    border-width: 2px;
+
+    img {
+        object-fit: contain;
+    }
+}
+
+.subsection-heading {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: $color-text;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba($color-accent, 0.35);
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+}
+
+.content-block h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $color-accent;
+    letter-spacing: 0.01em;
+}

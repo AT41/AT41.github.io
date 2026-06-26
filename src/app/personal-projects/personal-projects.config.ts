@@ -9,6 +9,18 @@ export interface PersonalProject {
 
 export const PERSONAL_PROJECTS: PersonalProject[] = [
   {
+    slug: 'stat-requirement-checklist',
+    title: 'OpenRCT2 Stat Checklist',
+    icon: 'attractions',
+    tocSections: [
+      { id: 'section-main', label: 'Main', icon: 'home' },
+      { id: 'section-background', label: 'Background', icon: 'info' },
+      { id: 'section-plugin-options', label: 'Plugin Options', icon: 'tune' },
+      { id: 'section-technologies', label: 'Technologies Used', icon: 'layers' },
+      { id: 'section-future-features', label: "What I'd Like to Add Next", icon: 'lightbulb' },
+    ],
+  },
+  {
     slug: 'eink-businesscard',
     title: 'E-Ink Business Card',
     icon: 'memory',

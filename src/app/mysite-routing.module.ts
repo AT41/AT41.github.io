@@ -9,6 +9,7 @@ import { DigitalPhotoframeComponent } from './personal-projects/digital-photofra
 import { PiEmulatorComponent } from './personal-projects/pi-emulator/pi-emulator.component';
 import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/japanese-website.component';
 import { PasswordStrengthProjectComponent } from './personal-projects/password-strength-project/password-strength-project.component';
+import { StatRequirementChecklistComponent } from './personal-projects/stat-requirement-checklist/stat-requirement-checklist.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
     path: 'personal-projects',
     component: PersonalProjectsComponent,
     children: [
-      { path: '', redirectTo: 'eink-businesscard', pathMatch: 'full' },
+      { path: '', redirectTo: 'stat-requirement-checklist', pathMatch: 'full' },
+      { path: 'stat-requirement-checklist', component: StatRequirementChecklistComponent },
       { path: 'eink-businesscard', component: EinkBusinesscardComponent },
       { path: 'digital-photoframe', component: DigitalPhotoframeComponent },
       { path: 'pi-emulator', component: PiEmulatorComponent },

@@ -16,6 +16,7 @@ import { JapaneseWebsiteComponent } from './personal-projects/japanese-website/j
 import { PiEmulatorComponent } from './personal-projects/pi-emulator/pi-emulator.component';
 import { LinkedInRedirect } from './guards/LinkedInRedirect';
 import { EinkBusinesscardComponent } from './personal-projects/eink-businesscard/eink-businesscard.component';
+import { StatRequirementChecklistComponent } from './personal-projects/stat-requirement-checklist/stat-requirement-checklist.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EinkBusinesscardComponent } from './personal-projects/eink-businesscard
     DigitalPhotoframeComponent,
     JapaneseWebsiteComponent,
     PiEmulatorComponent,
-    EinkBusinesscardComponent
+    EinkBusinesscardComponent,
+    StatRequirementChecklistComponent
   ],
   imports: [
     BrowserModule,

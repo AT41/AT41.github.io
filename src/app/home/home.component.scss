@@ -14,6 +14,13 @@
 
 .section-container {
     @include section-container;
+    position: relative;
+
+    @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+            z-index: 6 - $i;
+        }
+    }
 }
 
 .section-card {
